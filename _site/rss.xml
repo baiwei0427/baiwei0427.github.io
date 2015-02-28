@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+        <title>Wei Bai</title>
+        <description>Wei Bai - Wei Bai</description>
+        <link>http://baiwei0427.github.io</link>
+        <link>http://baiwei0427.github.io</link>
+        <lastBuildDate>2015-03-01T03:36:41+08:00</lastBuildDate>
+        <pubDate>2015-03-01T03:36:41+08:00</pubDate>
+        <ttl>1800</ttl>
+
+
+        <item>
+                <title>Hello World</title>
+                <description>
+&lt;p&gt;I am happy to set up my blog. 
+Thanks for &lt;a href=&quot;http://haow.ca&quot;&gt;Hao&lt;/a&gt;&amp;#8217;s help. 
+I will post some random thoughts about research, technology and life here. &lt;/p&gt;
+</description>
+                <link>http://baiwei0427.github.io/life/2015/03/01/hello-world</link>
+                <guid>http://baiwei0427.github.io/life/2015/03/01/hello-world</guid>
+                <pubDate>2015-03-01T00:00:00+08:00</pubDate>
+        </item>
+
+
+</channel>
+</rss>

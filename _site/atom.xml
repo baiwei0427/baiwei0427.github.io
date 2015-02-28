@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Wei Bai</title>
+ <link href="http://baiwei0427.github.io/" rel="self"/>
+ <link href="http://baiwei0427.github.io"/>
+ <updated>2015-03-01T03:36:41+08:00</updated>
+ <id>http://baiwei0427.github.io</id>
+ <author>
+   <name>Wei Bai</name>
+   <email>baiwei0427@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Hello World</title>
+   <link href="http://baiwei0427.github.io/life/2015/03/01/hello-world"/>
+   <updated>2015-03-01T00:00:00+08:00</updated>
+   <id>http://baiwei0427.github.io/life/2015/03/01/hello-world</id>
+   <content type="html">
+&lt;p&gt;I am happy to set up my blog. 
+Thanks for &lt;a href=&quot;http://haow.ca&quot;&gt;Hao&lt;/a&gt;&amp;#8217;s help. 
+I will post some random thoughts about research, technology and life here. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

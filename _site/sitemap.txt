@@ -1,0 +1,11 @@
+
+http://baiwei0427.github.io/archive.html
+http://baiwei0427.github.io/atom.xml
+http://baiwei0427.github.io/categories.html
+http://baiwei0427.github.io/index.html
+http://baiwei0427.github.io/pages.html
+http://baiwei0427.github.io/rss.xml
+http://baiwei0427.github.io/sitemap.txt
+http://baiwei0427.github.io/tags.html
+
+http://baiwei0427.github.io/life/2015/03/01/hello-world
