@@ -124,11 +124,16 @@ May 2015, Oakland, CA<br/>
 Copyright &copy;&nbsp;2015-2023 <a href="./">Wei Bai &nbsp;&nbsp;&nbsp;&nbsp;</a>
 <script type="text/javascript">
 document.write("Last updated "+new Date(document.lastModified).toUTCString());
+function validateXHTML() {
+    var currentURL = encodeURIComponent(window.location.href);
+    var validationURL = "http://validator.w3.org/check?uri=" + currentURL;
+    window.open(validationURL, "_blank");
+}
 </script>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="http://validator.w3.org/check?uri=referer">
+<button onclick="validateXHTML()">
 <img src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" style="vertical-align:middle" height="26" width="80" />
-</a>
+</button>
 </div>
 </div>
 
