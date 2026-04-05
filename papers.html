@@ -33,6 +33,19 @@
     .badge-other { background: #f3f4f6; color: #374151; }
     .ops-tag { font-size: 0.72rem; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.3rem; }
     footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --border: #1f2937;
+        --hover-bg: #1f2937;
+      }
+      nav { background: #0f1117; }
+      .event-card, form { background: #1a1f2e; }
+    }
   </style>
 </head>
 <body>

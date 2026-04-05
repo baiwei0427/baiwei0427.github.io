@@ -25,6 +25,19 @@
     .talk-links a:hover { background: #f9fafb; }
     .tag-video { border-color: #fca5a5 !important; color: #dc2626 !important; }
     .tag-slides { border-color: #86efac !important; color: #16a34a !important; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --border: #1f2937;
+        --hover-bg: #1f2937;
+      }
+      nav { background: #0f1117; }
+      .event-card, form { background: #1a1f2e; }
+    }
   </style>
 </head>
 <body>

@@ -23,6 +23,19 @@
     .software-links a { font-size: 0.82rem; color: var(--accent); text-decoration: none; padding: 0.15rem 0.5rem; border: 1px solid var(--border); border-radius: 4px; }
     .software-links a:hover { background: #f9fafb; }
     footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --border: #1f2937;
+        --hover-bg: #1f2937;
+      }
+      nav { background: #0f1117; }
+      .event-card, form { background: #1a1f2e; }
+    }
   </style>
 </head>
 <body>
