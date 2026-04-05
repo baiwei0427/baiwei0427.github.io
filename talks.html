@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talks — Wei Bai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #ffffff; --text: #1a1a1a; --muted: #6b7280; --accent: #2563eb; --border: #e5e7eb; }
+    body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--bg); max-width: 860px; margin: 0 auto; padding: 3rem 2rem; }
+    nav { display: flex; gap: 0.25rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+    nav a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--muted); padding: 0.5rem 1rem; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
+    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
+    .talk { padding: 0.9rem 0; border-bottom: 1px solid var(--border); }
+    .talk:last-child { border-bottom: none; }
+    .talk-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .talk-title a { color: var(--accent); text-decoration: none; }
+    .talk-title a:hover { text-decoration: underline; }
+    .talk-meta { font-size: 0.85rem; color: var(--muted); }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Publications</a>
+    <a href="talks.html" class="active">Talks</a>
+    <a href="software.html">Software</a>
+  </nav>
+
+  <h1>Talks & Slides</h1>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/rdma-apnet.pptx">RDMA at Hyperscale: Experience and Future Directions</a></div>
+    <div class="talk-meta">APNet 2023 · June 2023, Hong Kong</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/rdma-pku.pptx">Empowering Azure Storage with RDMA</a></div>
+    <div class="talk-meta">May 2023, Peking University</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/inside-datacenter.pptx">Inside a Datacenter: Hardware and Software Architecture</a></div>
+    <div class="talk-meta">Guest Lecture, Cloud Computing · October 2022, Boston University</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title">Towards Understanding the Micro-Behaviors of Hardware Offloaded Network Stacks</div>
+    <div class="talk-meta">July 2022, Intel Switch Fabric Group</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title">Towards Understanding the Micro-Behaviors of Hardware Offloaded Network Stacks</div>
+    <div class="talk-meta">June 2022, Keysight</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title">RDMA at Cloud Region Scale: A Researcher's Experience and View</div>
+    <div class="talk-meta">Systems Seminar · May 2022, Rice University</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/aeolus-duke.pptx">Aeolus: A Building Block for Proactive Transport in Datacenters</a></div>
+    <div class="talk-meta">Systems and Networking Seminar · December 2020, Duke University</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/hotdc-talk.pptx">Congestion Control Mechanisms for Data Center Networks</a></div>
+    <div class="talk-meta">HotDC 2018 · October 2018, Beijing</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/apnet17.pptx">Experiments with Data Center Congestion Control Research</a></div>
+    <div class="talk-meta">APNet 2017 · August 2017, Hong Kong</div>
+  </div>
+
+  <div class="talk">
+    <div class="talk-title"><a href="./slides/defense.pptx">Congestion Control Mechanisms for Data Center Networks</a></div>
+    <div class="talk-meta">PhD Thesis Defense · May 2017, HKUST</div>
+  </div>
+
+  <footer><p>© 2015–2026 Wei Bai</p></footer>
+</body>
+</html>

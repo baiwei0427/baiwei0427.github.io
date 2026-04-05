@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software — Wei Bai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #ffffff; --text: #1a1a1a; --muted: #6b7280; --accent: #2563eb; --border: #e5e7eb; }
+    body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--bg); max-width: 860px; margin: 0 auto; padding: 3rem 2rem; }
+    nav { display: flex; gap: 0.25rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+    nav a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--muted); padding: 0.5rem 1rem; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
+    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .intro { font-size: 0.92rem; color: var(--muted); margin-bottom: 2rem; max-width: 640px; }
+    .software-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .software-item:last-child { border-bottom: none; }
+    .software-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .software-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .software-links a { font-size: 0.82rem; color: var(--accent); text-decoration: none; padding: 0.15rem 0.5rem; border: 1px solid var(--border); border-radius: 4px; }
+    .software-links a:hover { background: #f9fafb; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Publications</a>
+    <a href="talks.html">Talks</a>
+    <a href="software.html" class="active">Software</a>
+  </nav>
+
+  <h1>Open Source Software</h1>
+  <p class="intro">I believe releasing software is the most important responsibility for every researcher. Below are prototypes and tools related to my papers. Questions? Drop me an email.</p>
+
+  <div class="software-item">
+    <div class="software-title">Lumina — Hardware Offloaded Network Stack Micro-Behavior Testing</div>
+    <div class="software-links">
+      <a href="https://github.com/lumina-test/lumina">Code</a>
+      <a href="https://lumina-test.github.io/">Project</a>
+    </div>
+  </div>
+
+  <div class="software-item">
+    <div class="software-title">PIAS — Information-Agnostic Flow Scheduling</div>
+    <div class="software-links">
+      <a href="https://github.com/HKUST-SING/PIAS-Software">Code</a>
+      <a href="https://sing.cse.ust.hk/projects/PIAS">Project</a>
+    </div>
+  </div>
+
+  <div class="software-item">
+    <div class="software-title">MQ-ECN — ECN for Multi-Service Multi-Queue Data Centers</div>
+    <div class="software-links">
+      <a href="https://github.com/HKUST-SING/MQ-ECN-Software">Code</a>
+      <a href="https://sing.cse.ust.hk/projects/MQ-ECN">Project</a>
+    </div>
+  </div>
+
+  <div class="software-item">
+    <div class="software-title">Traffic Generator — Simple traffic generator for network experiments</div>
+    <div class="software-links">
+      <a href="https://github.com/HKUST-SING/TrafficGenerator">Code</a>
+    </div>
+  </div>
+
+  <footer><p>© 2015–2026 Wei Bai</p></footer>
+</body>
+</html>

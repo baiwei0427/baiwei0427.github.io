@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wei Bai</title>
+  <meta name="description" content="Wei Bai — Member of Technical Staff at Microsoft AI Superintelligence Team. Research in data center networking and AI infrastructure." />
+  <meta name="author" content="Wei Bai" />
+  <meta property="og:title" content="Wei Bai" />
+  <meta property="og:description" content="Member of Technical Staff at Microsoft AI Superintelligence Team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --hover-bg: #f9fafb;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header img {
+      width: 160px;
+      height: 196px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .header-info h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .header-info h1 span {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.5rem;
+    }
+
+    .header-info .title {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .header-info .title strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .contact {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .links a:hover { background: var(--hover-bg); }
+
+    /* NAV */
+    nav {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 0.5rem 1rem;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    section p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    section p a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    section p a:hover { text-decoration: underline; }
+
+    /* NEWS */
+    .news-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .news-item:last-child { border-bottom: none; }
+
+    .news-date {
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 0.85rem;
+      min-width: 80px;
+    }
+
+    /* PAPERS */
+    .paper {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .paper:last-child { border-bottom: none; }
+
+    .paper-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .paper-title a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .paper-title a:hover { text-decoration: underline; }
+
+    .paper-authors {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .paper-authors strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .paper-venue {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin-right: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-sigcomm { background: #fef3c7; color: #92400e; }
+    .badge-nsdi { background: #dbeafe; color: #1e40af; }
+    .badge-eurosys { background: #d1fae5; color: #065f46; }
+    .badge-infocom { background: #ede9fe; color: #5b21b6; }
+    .badge-other { background: #f3f4f6; color: #374151; }
+
+    /* ACTIVITIES */
+    .activity-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .activity-item:last-child { border-bottom: none; }
+    .activity-item a { color: var(--accent); text-decoration: none; }
+    .activity-item a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: center; text-align: center; }
+      .links { justify-content: center; }
+      nav a { padding: 0.5rem 0.6rem; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="./img/wei.jpg" alt="Wei Bai" />
+    <div class="header-info">
+      <h1>Wei Bai <span>白巍</span></h1>
+      <div class="title">
+        <strong>Member of Technical Staff</strong><br>
+        Microsoft AI Superintelligence Team, Microsoft<br>
+        Redmond, Washington, USA
+      </div>
+      <div class="contact">
+        Work: <img src="email_work.png" alt="work email" style="height: 16px; vertical-align: middle;" /><br>
+        Personal: <img src="email_personal.png" alt="personal email" style="height: 16px; vertical-align: middle;" />
+      </div>
+      <div class="links">
+        <a href="CV.pdf">📄 CV</a>
+        <a href="https://www.linkedin.com/in/wei-bai-234a6261" target="_blank">LinkedIn</a>
+        <a href="https://github.com/baiwei0427" target="_blank">GitHub</a>
+        <a href="https://scholar.google.com.hk/citations?user=2zjLkpcAAAAJ" target="_blank">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="papers.html">Publications</a>
+    <a href="talks.html">Talks</a>
+    <a href="software.html">Software</a>
+  </nav>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am a Member of Technical Staff at the <a href="https://microsoft.ai/superintelligence/">Microsoft AI Superintelligence Team</a>. Before that, I was a Principal Software Research Architect at NVIDIA and a Senior Researcher at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-redmond/">Microsoft Research Redmond</a>.
+    </p>
+    <p>
+      I received my Ph.D. and B.E. from <a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology</a> and <a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University</a>, respectively.
+    </p>
+    <p>
+      I am broadly interested in computer networking with a special focus on data center networking. I see myself as a fusion of a software engineer and a network plumber, with rich experience developing and operating production cloud networks. Currently, I focus on network infrastructure to support hyperscale AI workloads.
+    </p>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news">
+    <h2>News</h2>
+    <div class="news-item">
+      <span class="news-date">Feb 2026</span>
+      <span>Rejoined Microsoft, now at the <a href="https://microsoft.ai/superintelligence/">AI Superintelligence Team</a> — a new chapter!</span>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL ACTIVITIES -->
+  <section id="activities">
+    <h2>Professional Activities</h2>
+    <div class="activity-item">Program Committee: <a href="https://conferences.sigcomm.org/events/apnet2026/">APNet 2026</a></div>
+    <div class="activity-item">Program Committee: <a href="https://www.usenix.org/conference/nsdi26">NSDI 2026</a></div>
+  </section>
+
+  <!-- PAPERS LINK -->
+  <section id="papers">
+    <h2>Publications</h2>
+    <p>See my full list of <a href="papers.html">publications →</a></p>
+  </section>
+
+  <footer>
+    <p>© 2015–2026 Wei Bai</p>
+  </footer>
+
+</body>
+</html>
