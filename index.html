@@ -251,11 +251,17 @@
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
+      body { font-size: 16px; padding: 1.5rem 1rem; }
       .header { flex-direction: column; align-items: center; text-align: center; }
       .contact { text-align: center; }
       .contact img { margin: 0 auto; }
       .links { justify-content: center; }
-      nav a { padding: 0.5rem 0.6rem; font-size: 0.82rem; }
+      nav { flex-wrap: wrap; gap: 0; }
+      nav a { padding: 0.4rem 0.5rem; font-size: 0.75rem; }
+      h1 { font-size: 1.3rem; }
+      h2 { font-size: 0.75rem; }
+      .entry { flex-direction: column; gap: 0.25rem; }
+      .entry-period { min-width: auto; }
     }
     }
   </style>
