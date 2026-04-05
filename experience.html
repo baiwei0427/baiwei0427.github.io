@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Wei Bai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #ffffff; --text: #1a1a1a; --muted: #6b7280; --accent: #2563eb; --border: #e5e7eb; }
+    body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--bg); max-width: 860px; margin: 0 auto; padding: 3rem 2rem; }
+    nav { display: flex; gap: 0.25rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+    nav a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--muted); padding: 0.5rem 1rem; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
+    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 2rem; }
+    h2 { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 2.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+    .entry { display: flex; gap: 2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+    .entry:last-child { border-bottom: none; }
+    .entry-period { font-size: 0.82rem; color: var(--muted); white-space: nowrap; min-width: 120px; padding-top: 0.1rem; }
+    .entry-content { flex: 1; }
+    .entry-org { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.15rem; }
+    .entry-org a { color: var(--accent); text-decoration: none; }
+    .entry-org a:hover { text-decoration: underline; }
+    .entry-title { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .entry-location { font-size: 0.82rem; color: var(--muted); }
+    .entry-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+    .entry-note a { color: var(--accent); text-decoration: none; }
+    .entry-note a:hover { text-decoration: underline; }
+    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+    @media (max-width: 600px) { .entry { flex-direction: column; gap: 0.25rem; } .entry-period { min-width: auto; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="papers.html">Publications</a>
+    <a href="talks.html">Talks</a>
+    <a href="software.html">Software</a>
+    <a href="experience.html">Experience</a>
+    <a href="experience.html" class="active">Experience</a>
+  </nav>
+
+  <h1>Experience</h1>
+
+  <h2>Industry</h2>
+
+  <div class="entry">
+    <div class="entry-period">Feb 2026 – Present</div>
+    <div class="entry-content">
+      <div class="entry-org"><a href="https://microsoft.ai/superintelligence/">Microsoft</a></div>
+      <div class="entry-title">Member of Technical Staff, AI Superintelligence Team</div>
+      <div class="entry-location">Redmond, Washington, USA</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-period">Jan 2024 – Feb 2026</div>
+    <div class="entry-content">
+      <div class="entry-org"><a href="https://www.nvidia.com/">NVIDIA</a></div>
+      <div class="entry-title">Principal Software Research Architect, Networking Software and System Architecture Group</div>
+      <div class="entry-location">Redmond, Washington, USA</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-period">Aug 2019 – Jan 2024</div>
+    <div class="entry-content">
+      <div class="entry-org"><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-redmond/">Microsoft Research Redmond</a></div>
+      <div class="entry-title">
+        Senior Researcher, Networking Research Group <span style="color:#9ca3af;">(Jul 2021 – Jan 2024)</span><br>
+        Senior Research SDE, Networking Research Group <span style="color:#9ca3af;">(Sep 2020 – Jul 2021)</span><br>
+        Research SDE 2, Mobility and Networking Research Group <span style="color:#9ca3af;">(Aug 2019 – Sep 2020)</span>
+      </div>
+      <div class="entry-location">Redmond, Washington, USA</div>
+      <div class="entry-note">Led RoCE at Microsoft Azure — network infrastructure for the world's largest RDMA deployments, handling over 70% of Azure traffic.</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-period">Jul 2017 – Aug 2019</div>
+    <div class="entry-content">
+      <div class="entry-org"><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft Research Asia</a></div>
+      <div class="entry-title">Researcher (formerly Associate Researcher 2), Networking Research Group</div>
+      <div class="entry-location">Beijing, China</div>
+    </div>
+  </div>
+
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-period">Sep 2013 – Jun 2017</div>
+    <div class="entry-content">
+      <div class="entry-org"><a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology (HKUST)</a></div>
+      <div class="entry-title">Ph.D., Computer Science and Engineering</div>
+      <div class="entry-location">Hong Kong SAR, China</div>
+      <div class="entry-note">Advisor: Prof. Kai Chen · Thesis: "Congestion Control Mechanisms for Data Center Networks"</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-period">Sep 2009 – Jul 2013</div>
+    <div class="entry-content">
+      <div class="entry-org"><a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University (SJTU)</a></div>
+      <div class="entry-title">B.E., Information Security</div>
+      <div class="entry-location">Shanghai, China</div>
+      <div class="entry-note">Outstanding Bachelor Thesis Award (Top 1%)</div>
+    </div>
+  </div>
+
+  <footer><p>© 2015–2026 Wei Bai</p></footer>
+</body>
+</html>
