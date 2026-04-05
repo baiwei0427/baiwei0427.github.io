@@ -20,7 +20,11 @@
     .talk-title a { color: var(--accent); text-decoration: none; }
     .talk-title a:hover { text-decoration: underline; }
     .talk-meta { font-size: 0.85rem; color: var(--muted); }
-    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+    .talk-links { display: flex; gap: 0.5rem; margin-top: 0.3rem; flex-wrap: wrap; }
+    .talk-links a { font-size: 0.78rem; color: var(--accent); text-decoration: none; padding: 0.1rem 0.45rem; border: 1px solid var(--border); border-radius: 3px; }
+    .talk-links a:hover { background: #f9fafb; }
+    .tag-video { border-color: #fca5a5 !important; color: #dc2626 !important; }
+    .tag-slides { border-color: #86efac !important; color: #16a34a !important; }
   </style>
 </head>
 <body>
@@ -34,28 +38,33 @@
   <h1>Talks & Slides</h1>
 
   <div class="talk">
-    <div class="talk-title"><a href="https://www.youtube.com/watch?v=FnOO5Ot2HEU">SONiC for AI Networking: Looking Back and Ahead</a></div>
+    <div class="talk-title">SONiC for AI Networking: Looking Back and Ahead</div>
     <div class="talk-meta">SONiC Workshop, OCP Global Summit 2025 · with Xin Liu (Microsoft)</div>
+    <div class="talk-links"><a href="https://www.youtube.com/watch?v=FnOO5Ot2HEU" class="tag-video">▶ Video</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="https://www.youtube.com/watch?v=tjQsXYjNxiM">Empowering AI Networking with SONiC</a></div>
+    <div class="talk-title">Empowering AI Networking with SONiC</div>
     <div class="talk-meta">SONiC Workshop, OCP Global Summit 2024 · with Guohan Lu, Xin Liu (Microsoft)</div>
+    <div class="talk-links"><a href="https://www.youtube.com/watch?v=tjQsXYjNxiM" class="tag-video">▶ Video</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/rdma-apnet.pptx">RDMA at Hyperscale: Experience and Future Directions</a></div>
+    <div class="talk-title">RDMA at Hyperscale: Experience and Future Directions</div>
     <div class="talk-meta">APNet 2023 · June 2023, Hong Kong</div>
+    <div class="talk-links"><a href="./slides/rdma-apnet.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/rdma-pku.pptx">Empowering Azure Storage with RDMA</a></div>
+    <div class="talk-title">Empowering Azure Storage with RDMA</div>
     <div class="talk-meta">May 2023, Peking University</div>
+    <div class="talk-links"><a href="./slides/rdma-pku.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/inside-datacenter.pptx">Inside a Datacenter: Hardware and Software Architecture</a></div>
+    <div class="talk-title">Inside a Datacenter: Hardware and Software Architecture</div>
     <div class="talk-meta">Guest Lecture, Cloud Computing · October 2022, Boston University</div>
+    <div class="talk-links"><a href="./slides/inside-datacenter.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <div class="talk">
@@ -74,23 +83,27 @@
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/aeolus-duke.pptx">Aeolus: A Building Block for Proactive Transport in Datacenters</a></div>
+    <div class="talk-title">Aeolus: A Building Block for Proactive Transport in Datacenters</div>
     <div class="talk-meta">Systems and Networking Seminar · December 2020, Duke University</div>
+    <div class="talk-links"><a href="./slides/aeolus-duke.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/hotdc-talk.pptx">Congestion Control Mechanisms for Data Center Networks</a></div>
+    <div class="talk-title">Congestion Control Mechanisms for Data Center Networks</div>
     <div class="talk-meta">HotDC 2018 · October 2018, Beijing</div>
+    <div class="talk-links"><a href="./slides/hotdc-talk.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/apnet17.pptx">Experiments with Data Center Congestion Control Research</a></div>
+    <div class="talk-title">Experiments with Data Center Congestion Control Research</div>
     <div class="talk-meta">APNet 2017 · August 2017, Hong Kong</div>
+    <div class="talk-links"><a href="./slides/apnet17.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <div class="talk">
-    <div class="talk-title"><a href="./slides/defense.pptx">Congestion Control Mechanisms for Data Center Networks</a></div>
+    <div class="talk-title">Congestion Control Mechanisms for Data Center Networks</div>
     <div class="talk-meta">PhD Thesis Defense · May 2017, HKUST</div>
+    <div class="talk-links"><a href="./slides/defense.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
   <footer><p>© 2015–2026 Wei Bai</p></footer>
