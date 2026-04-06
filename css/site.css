@@ -1,5 +1,6 @@
 /* Shared styles for all pages */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { overflow-y: scroll; }
 
 :root {
   --bg: #f7f5f0;
