@@ -124,6 +124,10 @@
 
   </main>
 
-  <footer><p>© 2015–<script>document.write(new Date().getFullYear())</script> Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p></footer>
+  <footer>
+    <p>© 2015–<script>document.write(new Date().getFullYear())</script> Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p>
+    <p id="last-updated"></p>
+    <script>!function(){var d=new Date(),m=d.toLocaleString('en-US',{month:'long'});document.getElementById('last-updated').textContent='Last updated: '+m+' '+d.getFullYear()}()</script>
+  </footer>
 </body>
 </html>
