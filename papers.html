@@ -200,7 +200,8 @@
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2020</div>
   </div>
 
-
+  <button class="toggle-btn" id="toggleEarlier" onclick="toggleEarlierPapers()" aria-expanded="false" aria-controls="earlierPapers"><span class="arrow">&#9654;</span> Show earlier papers (before 2020)</button>
+  <div class="collapsed-papers" id="earlierPapers">
 
   <div class="year-label">2019</div>
 
@@ -233,9 +234,6 @@
     <div class="paper-authors">Xiaodong Yi, Junjie Wang, Jingpu Duan, <strong>Wei Bai</strong>, Chuan Wu, Yongqiang Xiong, Dongsu Han</div>
     <div class="paper-venue"><span class="badge badge-other">ICNP</span> IEEE ICNP 2019</div>
   </div>
-
-  <button class="toggle-btn" id="toggleEarlier" onclick="toggleEarlierPapers()" aria-expanded="false" aria-controls="earlierPapers"><span class="arrow">&#9654;</span> Show earlier papers (C1–C14)</button>
-  <div class="collapsed-papers" id="earlierPapers">
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C14]</span>
     <div class="paper-title"><a href="./papers/dlbooster-icpp2019.pdf">DLBooster: Boosting End-to-End Deep Learning Workflows with Offloading Data Preprocessing Pipelines</a></div>
@@ -529,8 +527,8 @@ function toggleEarlierPapers() {
   btn.classList.toggle('expanded', expanded);
   btn.setAttribute('aria-expanded', expanded);
   btn.innerHTML = expanded
-    ? '<span class="arrow">&#9654;</span> Hide earlier papers (C1–C14)'
-    : '<span class="arrow">&#9654;</span> Show earlier papers (C1–C14)';
+    ? '<span class="arrow">&#9654;</span> Hide earlier papers (before 2020)'
+    : '<span class="arrow">&#9654;</span> Show earlier papers (before 2020)';
 }
 </script>
 </body>
