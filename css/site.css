@@ -1,6 +1,6 @@
 /* Shared styles for all pages */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { overflow-y: scroll; }
+html { overflow-y: scroll; scrollbar-gutter: stable; }
 
 :root {
   --bg: #f7f5f0;
