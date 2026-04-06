@@ -86,6 +86,53 @@
         height: 8px;
       }
     }
+
+    /* Journey Map */
+    .journey-map {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+    .journey-map svg {
+      display: block;
+      min-width: 600px;
+      width: 100%;
+      height: auto;
+    }
+    .journey-path {
+      --path-len: 2000;
+      fill: none;
+      stroke: var(--border);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: var(--path-len);
+      stroke-dashoffset: var(--path-len);
+      transition: stroke-dashoffset 2s ease-out;
+    }
+    .journey-map.visible .journey-path {
+      stroke-dashoffset: 0;
+    }
+    .journey-node { fill: var(--muted); }
+    .journey-node-current { fill: var(--accent); }
+    .journey-label { fill: var(--text); font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif; text-anchor: middle; }
+    .journey-detail { fill: var(--muted); font-size: 10px; font-family: 'Inter', sans-serif; text-anchor: middle; }
+    @keyframes journey-pulse {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.4; }
+    }
+    .journey-pulse {
+      fill: var(--accent);
+      animation: journey-pulse 2s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .journey-path {
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
+        transition: none !important;
+      }
+      .journey-pulse { animation: none; opacity: 0.2; }
+    }
   </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0JPBRQV5V"></script>
@@ -108,6 +155,28 @@
 
   <main>
   <h1>Experience</h1>
+
+  <div class="journey-map reveal" aria-label="Career journey from Beijing to Redmond">
+    <svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Journey map showing career path across cities">
+      <path class="journey-path" d="M 90,60 C 140,28 220,28 270,60 S 400,92 450,60 S 580,28 630,60 S 760,92 810,60"/>
+      <circle class="journey-node" cx="90" cy="60" r="6"/>
+      <text class="journey-label" x="90" y="30">Beijing</text>
+      <text class="journey-detail" x="90" y="88">Born &amp; raised</text>
+      <circle class="journey-node" cx="270" cy="60" r="6"/>
+      <text class="journey-label" x="270" y="30">Shanghai</text>
+      <text class="journey-detail" x="270" y="88">SJTU · 2009–2013</text>
+      <circle class="journey-node" cx="450" cy="60" r="6"/>
+      <text class="journey-label" x="450" y="30">Hong Kong</text>
+      <text class="journey-detail" x="450" y="88">HKUST PhD · 2013–2017</text>
+      <circle class="journey-node" cx="630" cy="60" r="6"/>
+      <text class="journey-label" x="630" y="30">Beijing</text>
+      <text class="journey-detail" x="630" y="88">MSR Asia · 2017–2019</text>
+      <circle class="journey-pulse" cx="810" cy="60" r="14"/>
+      <circle class="journey-node-current" cx="810" cy="60" r="6"/>
+      <text class="journey-label" x="810" y="30">Redmond</text>
+      <text class="journey-detail" x="810" y="86"><tspan x="810" dy="0">MSR → NVIDIA → MSFT AI</tspan><tspan x="810" dy="12">2019–present</tspan></text>
+    </svg>
+  </div>
 
   <h2>Industry</h2>
 
@@ -187,6 +256,9 @@
     <p>Last updated: April 2026</p>
   </footer>
 
+<script>
+!function(){var p=document.querySelector('.journey-path');if(p){p.style.setProperty('--path-len',p.getTotalLength())}}();
+</script>
 <script>
 !function(){
   var els=document.querySelectorAll('.reveal');
