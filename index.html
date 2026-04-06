@@ -37,7 +37,7 @@
     }
 
     /* HEADER */
-    .header {
+    header {
       display: flex;
       gap: 2.5rem;
       align-items: flex-start;
@@ -46,7 +46,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .header img {
+    header img {
       width: 130px;
       height: 160px;
       object-fit: cover;
@@ -254,7 +254,7 @@
     /* RESPONSIVE */
     @media (max-width: 600px) {
       body { font-size: 16px; padding: 1.5rem 1rem; }
-      .header { flex-direction: column; align-items: center; text-align: center; }
+      header { flex-direction: column; align-items: center; text-align: center; }
       .contact { text-align: center; }
       .contact img { margin: 0 auto; }
       .links { justify-content: center; }
@@ -262,10 +262,7 @@
       nav::after { content: ""; display: block; width: 100%; border-bottom: 1px solid var(--border); margin-top: -1px; }
       nav a { padding: 0.3rem 0.4rem; font-size: 0.68rem; letter-spacing: -0.01em; }
       h1 { font-size: 1.3rem; }
-      h2 { font-size: 0.75rem; }
-      .entry { flex-direction: column; gap: 0.25rem; }
-      .entry-period { min-width: auto; }
-    }
+      h2 { font-size: 1rem; }
     }
   </style>
 </head>
@@ -281,7 +278,7 @@
   </nav>
 
   <!-- HEADER -->
-  <div class="header">
+  <header>
     <img src="./img/wei.jpg" alt="Wei Bai" />
     <div class="header-info">
       <h1>Wei Bai <span>白巍</span></h1>
@@ -301,7 +298,7 @@
         <a href="https://scholar.google.com.hk/citations?user=2zjLkpcAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- ABOUT -->
   <section id="about">
