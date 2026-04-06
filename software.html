@@ -17,13 +17,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --bg: #f7f5f0; --text: #1a1a1a; --muted: #6b7280; --accent: #2563eb; --border: #e8e2d9; }
-    body { font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--bg); max-width: 860px; margin: 0 auto; padding: 3rem 2rem; }
-    nav { display: flex; gap: 0.25rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
-    nav a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--muted); padding: 0.5rem 1rem; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
-    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
     h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; }
     .intro { font-size: 0.92rem; color: var(--muted); margin-bottom: 2rem; max-width: 640px; }
     .software-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
@@ -33,14 +28,6 @@
     .software-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .software-links a { font-size: 0.82rem; color: var(--accent); text-decoration: none; padding: 0.15rem 0.5rem; border: 1px solid var(--border); border-radius: 4px; }
     .software-links a:hover { background: #f9fafb; }
-    footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
-    @media (max-width: 600px) {
-      body { font-size: 16px; padding: 1.5rem 1rem; }
-      nav { flex-wrap: wrap; gap: 0; justify-content: center; border-bottom: none; }
-      nav::after { content: ""; display: block; width: 100%; border-bottom: 1px solid var(--border); margin-top: -1px; }
-      nav a { padding: 0.35rem 0.5rem; font-size: 0.78rem; letter-spacing: -0.01em; }
-      h1 { font-size: 1.3rem; }
-    }
   </style>
 </head>
 <body>
@@ -88,6 +75,6 @@
 
   </main>
 
-  <footer><p>© 2015–2026 Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p></footer>
+  <footer><p>© 2015–<script>document.write(new Date().getFullYear())</script> Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p></footer>
 </body>
 </html>
