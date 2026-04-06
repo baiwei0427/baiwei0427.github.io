@@ -44,6 +44,14 @@
     .badge-other { background: #f3f4f6; color: #374151; }
     .ops-tag { font-size: 0.72rem; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.3rem; }
     footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted); }
+    .year-label { font-size: 0.82rem; font-weight: 600; color: var(--muted); margin: 1.5rem 0 0.25rem; letter-spacing: 0.02em; }
+    .year-label:first-of-type { margin-top: 0.5rem; }
+    .collapsed-papers { display: none; }
+    .collapsed-papers.expanded { display: block; }
+    .toggle-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.85rem; font-weight: 500; color: var(--accent); background: none; border: 1px solid var(--border); padding: 0.45rem 1rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; transition: background 0.15s, border-color 0.15s; }
+    .toggle-btn:hover { background: #f0edea; border-color: var(--accent); }
+    .toggle-btn .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.75rem; }
+    .toggle-btn.expanded .arrow { transform: rotate(90deg); }
     @media (max-width: 600px) {
       body { font-size: 16px; padding: 1.5rem 1rem; }
       nav { flex-wrap: wrap; gap: 0; justify-content: center; border-bottom: none; }
@@ -71,6 +79,8 @@
 
   <h2>Conference Papers</h2>
 
+  <div class="year-label">2025</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C32]</span>
     <div class="paper-title"><a href="https://dl.acm.org/doi/10.1145/3718958.3754342">Unlocking Superior Performance in Reconfigurable Data Center Networks with Credit-Based Transport</a></div>
     <div class="paper-authors">Federico De Marchi, Jialong Li, Ying Zhang, <strong>Wei Bai</strong>, Yiting Xia</div>
@@ -79,6 +89,8 @@
 
 
 
+
+  <div class="year-label">2024</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C31]</span>
     <div class="paper-title"><a href="./papers/ucmp-sigcomm2024.pdf">Uniform-Cost Multi-Path Routing for Reconfigurable Data Center Networks</a></div>
@@ -112,6 +124,8 @@
 
 
 
+  <div class="year-label">2023</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C27]</span>
     <div class="paper-title"><a href="./papers/lumina-sigcomm2023.pdf">Understanding the Micro-Behaviors of Hardware Offloaded Network Stacks with Lumina</a></div>
     <div class="paper-authors">Zhuolong Yu, Bowen Su, <strong>Wei Bai</strong>, Shachar Raindel, Vladimir Braverman, Xin Jin</div>
@@ -144,6 +158,8 @@
 
 
 
+  <div class="year-label">2021</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C23]</span>
     <div class="paper-title"><a href="./papers/1pipe-sigcomm2021.pdf">1Pipe: Scalable Total Order Communication in Data Center Networks</a></div>
     <div class="paper-authors">Bojie Li, Gefei Zuo, <strong>Wei Bai</strong>, Lintao Zhang</div>
@@ -159,6 +175,8 @@
   </div>
 
 
+
+  <div class="year-label">2020</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C21]</span>
     <div class="paper-title"><a href="./papers/aeolus-sigcomm2020.pdf">Aeolus: A Building Block for Proactive Transport in Datacenters</a></div>
@@ -183,6 +201,8 @@
   </div>
 
 
+
+  <div class="year-label">2019</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C18]</span>
     <div class="paper-title"><a href="./papers/ecn-conext2019.pdf">Enabling ECN for Datacenter Networks with RTT Variations</a></div>
@@ -214,7 +234,8 @@
     <div class="paper-venue"><span class="badge badge-other">ICNP</span> IEEE ICNP 2019</div>
   </div>
 
-
+  <button class="toggle-btn" id="toggleEarlier" onclick="toggleEarlierPapers()" aria-expanded="false" aria-controls="earlierPapers"><span class="arrow">&#9654;</span> Show earlier papers (C1–C14)</button>
+  <div class="collapsed-papers" id="earlierPapers">
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C14]</span>
     <div class="paper-title"><a href="./papers/dlbooster-icpp2019.pdf">DLBooster: Boosting End-to-End Deep Learning Workflows with Offloading Data Preprocessing Pipelines</a></div>
@@ -232,6 +253,8 @@
 
 
 
+  <div class="year-label">2017</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C12]</span>
     <div class="paper-title"><a href="./papers/hermes-sigcomm2017.pdf">Resilient Datacenter Load Balancing in the Wild</a></div>
     <div class="paper-authors">Hong Zhang, Junxue Zhang, <strong>Wei Bai</strong>, Kai Chen, Mosharaf Chowdhury</div>
@@ -247,6 +270,8 @@
   </div>
 
 
+
+  <div class="year-label">2016</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C10]</span>
     <div class="paper-title"><a href="./papers/karuna-sigcomm2016.pdf">Scheduling Mix-flows in Commodity Datacenters with Karuna</a></div>
@@ -280,6 +305,8 @@
 
 
 
+  <div class="year-label">2015</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C6]</span>
     <div class="paper-title"><a href="./papers/pias-nsdi2015.pdf">Information-Agnostic Flow Scheduling for Commodity Data Centers</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Li Chen, Kai Chen, Dongsu Han, Chen Tian, Hao Wang</div>
@@ -312,6 +339,8 @@
 
 
 
+  <div class="year-label">2014</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C2]</span>
     <div class="paper-title"><a href="./papers/pac-icnp2014.pdf">PAC: Taming TCP Incast Congestion Using Proactive ACK Control</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Kai Chen, Haitao Wu, Wuwei Lan, Yangming Zhao</div>
@@ -326,11 +355,13 @@
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2014</div>
   </div>
 
-  
+  </div><!-- end collapsed-papers -->
 
 
 
 <h2>Workshop Papers</h2>
+
+  <div class="year-label">2023</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[W6]</span>
     <div class="paper-title"><a href="./papers/hostnet-hotos2023.pdf">Towards a Manageable Intra-Host Network</a></div>
@@ -341,6 +372,8 @@
 
 
 
+  <div class="year-label">2019</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[W5]</span>
     <div class="paper-title"><a href="./papers/dml-transport-apnet2019.pdf">Rethinking Transport Layer Design for Distributed Machine Learning</a></div>
     <div class="paper-authors">Jiacheng Xia, Gaoxiong Zeng, Junxue Zhang, Weiyan Wang, <strong>Wei Bai</strong>, Junchen Jiang, Kai Chen</div>
@@ -349,6 +382,8 @@
 
 
 
+  <div class="year-label">2018</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[W4]</span>
     <div class="paper-title"><a href="./papers/aeolus-apnet2018.pdf">Augmenting Proactive Congestion Control with Aeolus</a></div>
     <div class="paper-authors">Shuihai Hu, <strong>Wei Bai</strong>, Baochen Qiao, Kai Chen, Kun Tan</div>
@@ -356,6 +391,8 @@
   </div>
 
 
+
+  <div class="year-label">2017</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[W3]</span>
     <div class="paper-title"><a href="./papers/ear-apnet2017.pdf">Combining ECN and RTT for Datacenter Transport</a></div>
@@ -373,6 +410,8 @@
 
 
 
+  <div class="year-label">2014</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[W1]</span>
     <div class="paper-title"><a href="./papers/pias-hotnets2014.pdf">PIAS: Practical Information-Agnostic Flow Scheduling for Data Center Networks</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Li Chen, Kai Chen, Dongsu Han, Chen Tian, Weicheng Sun</div>
@@ -384,6 +423,8 @@
 
 <h2>Journal Papers</h2>
 
+  <div class="year-label">2022</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[J10]</span>
     <div class="paper-title"><a href="./papers/gemini-ton.pdf">Congestion Control for Cross-Datacenter Networks</a></div>
     <div class="paper-authors">Gaoxiong Zeng, <strong>Wei Bai</strong>, Ge Chen, Kai Chen, Dongsu Han, Yibo Zhu, Lei Cui</div>
@@ -393,6 +434,8 @@
 
 
 
+  <div class="year-label">2021</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[J9]</span>
     <div class="paper-title"><a href="./papers/aeolus-ton.pdf">Aeolus: A Building Block for Proactive Transport in Datacenter Networks</a></div>
     <div class="paper-authors">Shuihai Hu, Gaoxiong Zeng, <strong>Wei Bai</strong>, Zilong Wang, Baochen Qiao, Kai Chen, Kun Tan, Yi Wang</div>
@@ -400,6 +443,8 @@
   </div>
 
 
+
+  <div class="year-label">2020</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[J8]</span>
     <div class="paper-title"><a href="./papers/dlbooster-tpds.pdf">Accelerating End-to-End Deep Learning Workflow With Codesign of Data Preprocessing and Scheduling</a></div>
@@ -417,6 +462,8 @@
 
 
 
+  <div class="year-label">2018</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[J6]</span>
     <div class="paper-title"><a href="./papers/trinity-tcc.pdf">Providing Bandwidth Guarantees, Work Conservation and Low Latency Simultaneously in the Cloud</a></div>
     <div class="paper-authors">Shuihai Hu, <strong>Wei Bai</strong>, Kai Chen, Chen Tian, Ying Zhang, Haitao Wu</div>
@@ -433,6 +480,8 @@
 
 
 
+  <div class="year-label">2017</div>
+
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[J4]</span>
     <div class="paper-title"><a href="./papers/pias-ton.pdf">PIAS: Practical Information-Agnostic Flow Scheduling for Commodity Data Centers</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Li Chen, Kai Chen, Dongsu Han, Chen Tian, Hao Wang</div>
@@ -448,6 +497,8 @@
   </div>
 
 
+
+  <div class="year-label">2016</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[J2]</span>
     <div class="paper-title"><a href="./papers/xpath-ton.pdf">Explicit Path Control in Commodity Data Centers: Design and Applications</a></div>
@@ -469,5 +520,18 @@
   </main>
 
 <footer><p>© 2015–2026 Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p></footer>
+
+<script>
+function toggleEarlierPapers() {
+  var btn = document.getElementById('toggleEarlier');
+  var section = document.getElementById('earlierPapers');
+  var expanded = section.classList.toggle('expanded');
+  btn.classList.toggle('expanded', expanded);
+  btn.setAttribute('aria-expanded', expanded);
+  btn.innerHTML = expanded
+    ? '<span class="arrow">&#9654;</span> Hide earlier papers (C1–C14)'
+    : '<span class="arrow">&#9654;</span> Show earlier papers (C1–C14)';
+}
+</script>
 </body>
 </html>
