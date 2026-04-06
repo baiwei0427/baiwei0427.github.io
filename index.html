@@ -240,6 +240,17 @@
     .activity-item a { color: var(--accent); text-decoration: none; }
     .activity-item a:hover { text-decoration: underline; }
 
+    /* AUTHOR TOGGLE */
+    .author-toggle {
+      font-size: 0.8rem;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 0.15rem;
+    }
+    .author-toggle:hover { text-decoration: underline; }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
       .hero-bg { padding: 1.5rem calc(50vw - 50%) 0; }
@@ -339,7 +350,10 @@
 
     <div class="paper reveal">
       <div class="paper-title"><a href="./papers/rdma-nsdi2023.pdf">Empowering Azure Storage with RDMA</a> <span class="badge badge-perfect">⭐ Perfect Score</span></div>
-      <div class="paper-authors"><strong>Wei Bai</strong>, Shanim Sainul Abdeen, Ankit Agrawal, Krishan Kumar Attre, Paramvir Bahl, Ameya Bhagat, Gowri Bhaskara, Tanya Brokhman, Lei Cao, Ahmad Cheema, Rebecca Chow, Jeff Cohen, Mahmoud Elhaddad, Vivek Ette, Igal Figlin, Daniel Firestone, Mathew George, Ilya German, Lakhmeet Ghai, Eric Green, Albert Greenberg, Manish Gupta, Randy Haagens, Matthew Hendel, Ridwan Howlader, Neetha John, Julia Johnstone, Tom Jolly, Greg Kramer, David Kruse, Ankit Kumar, Erica Lan, Ivan Lee, Avi Levy, Marina Lipshteyn, Xin Liu, Chen Liu, Guohan Lu, Yuemin Lu, Xiakun Lu, Vadim Makhervaks, Ulad Malashanka, David A. Maltz, Ilias Marinos, Rohan Mehta, Sharda Murthi, Anup Namdhari, Aaron Ogus, Jitendra Padhye, Madhav Pandya, Douglas Phillips, Adrian Power, Suraj Puri, Shachar Raindel, Jordan Rhee, Anthony Russo, Maneesh Sah, Ali Sheriff, Chris Sparacino, Ashutosh Srivastava, Weixiang Sun, Nick Swanson, Fuhou Tian, Lukasz Tomczyk, Vamsi Vadlamuri, Alec Wolman, Ying Xie, Joyce Yom, Lihua Yuan, Yanzhao Zhang, Brian Zill</div>
+      <div class="paper-authors" id="rdma-authors">
+        <span id="rdma-authors-short"><strong>Wei Bai</strong>, et al. (71 authors) <a href="javascript:void(0)" id="rdma-toggle" class="author-toggle">[show all]</a></span>
+        <span id="rdma-authors-full" style="display:none"><strong>Wei Bai</strong>, Shanim Sainul Abdeen, Ankit Agrawal, Krishan Kumar Attre, Paramvir Bahl, Ameya Bhagat, Gowri Bhaskara, Tanya Brokhman, Lei Cao, Ahmad Cheema, Rebecca Chow, Jeff Cohen, Mahmoud Elhaddad, Vivek Ette, Igal Figlin, Daniel Firestone, Mathew George, Ilya German, Lakhmeet Ghai, Eric Green, Albert Greenberg, Manish Gupta, Randy Haagens, Matthew Hendel, Ridwan Howlader, Neetha John, Julia Johnstone, Tom Jolly, Greg Kramer, David Kruse, Ankit Kumar, Erica Lan, Ivan Lee, Avi Levy, Marina Lipshteyn, Xin Liu, Chen Liu, Guohan Lu, Yuemin Lu, Xiakun Lu, Vadim Makhervaks, Ulad Malashanka, David A. Maltz, Ilias Marinos, Rohan Mehta, Sharda Murthi, Anup Namdhari, Aaron Ogus, Jitendra Padhye, Madhav Pandya, Douglas Phillips, Adrian Power, Suraj Puri, Shachar Raindel, Jordan Rhee, Anthony Russo, Maneesh Sah, Ali Sheriff, Chris Sparacino, Ashutosh Srivastava, Weixiang Sun, Nick Swanson, Fuhou Tian, Lukasz Tomczyk, Vamsi Vadlamuri, Alec Wolman, Ying Xie, Joyce Yom, Lihua Yuan, Yanzhao Zhang, Brian Zill <a href="javascript:void(0)" id="rdma-collapse" class="author-toggle">[collapse]</a></span>
+      </div>
       <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2023</div>
     </div>
 
@@ -404,6 +418,18 @@
       }
     }
   }).catch(function(){});
+}();
+</script>
+<script>
+!function(){
+  var short=document.getElementById('rdma-authors-short');
+  var full=document.getElementById('rdma-authors-full');
+  document.getElementById('rdma-toggle').addEventListener('click',function(){
+    short.style.display='none';full.style.display='inline';
+  });
+  document.getElementById('rdma-collapse').addEventListener('click',function(){
+    full.style.display='none';short.style.display='inline';
+  });
 }();
 </script>
 </body>
