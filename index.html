@@ -258,8 +258,9 @@
       .contact { text-align: center; }
       .contact img { margin: 0 auto; }
       .links { justify-content: center; }
-      nav { flex-wrap: wrap; gap: 0; justify-content: center; }
-      nav a { padding: 0.35rem 0.45rem; font-size: 0.72rem; }
+      nav { flex-wrap: wrap; gap: 0; justify-content: center; border-bottom: none; }
+      nav::after { content: ""; display: block; width: 100%; border-bottom: 1px solid var(--border); margin-top: -1px; }
+      nav a { padding: 0.3rem 0.4rem; font-size: 0.68rem; letter-spacing: -0.01em; }
       h1 { font-size: 1.3rem; }
       h2 { font-size: 0.75rem; }
       .entry { flex-direction: column; gap: 0.25rem; }
