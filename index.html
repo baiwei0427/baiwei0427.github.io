@@ -16,51 +16,81 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/site.css">
   <script>(function(){if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')})()</script>
   <style>
+    /* HERO FULL-BLEED BACKGROUND */
+    .hero-bg {
+      --hero-warm: #f2efe8;
+      background: var(--hero-warm);
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding: 2.5rem calc(50vw - 50%) 0;
+      margin-bottom: 0;
+    }
+    html[data-theme='dark'] .hero-bg {
+      --hero-warm: #1f1c16;
+    }
+
     /* HEADER */
     header {
       display: flex;
       gap: 2.5rem;
       align-items: flex-start;
-      margin-bottom: 3rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 0;
+      border-bottom: none;
     }
 
     header img {
-      width: 130px;
-      height: 160px;
+      width: 160px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 6px;
+      border-radius: 10px;
       flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
     }
 
     .header-info h1 {
       font-size: 1.75rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
     }
 
-    .header-info h1 span {
-      font-size: 1.1rem;
+    .header-info h1 .cn-name {
+      display: block;
+      font-size: 1rem;
       font-weight: 400;
       color: var(--muted);
-      margin-left: 0.5rem;
+      margin-top: 0.1rem;
     }
 
     .header-info .title {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       line-height: 1.5;
     }
 
     .header-info .title strong {
       color: var(--text);
       font-weight: 500;
+    }
+
+    .header-info .title .accent-link {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .header-info .title .accent-link:hover { text-decoration: underline; }
+
+    .tagline {
+      font-style: italic;
+      font-size: 1.02rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
 
     .contact {
@@ -78,18 +108,54 @@
     .links a {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
       font-size: 0.82rem;
       font-weight: 500;
       color: var(--accent);
       text-decoration: none;
-      padding: 0.25rem 0.6rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      transition: background 0.15s;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      transition: background 0.15s, color 0.15s;
     }
+    .links a svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+    .links a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    html[data-theme='dark'] .links a:hover { color: #fff; }
 
-    .links a:hover { background: var(--hover-bg); }
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 0.9rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
+      background: var(--hero-warm, #f2efe8);
+    }
+    html[data-theme='dark'] .stats-bar { background: var(--hero-warm, #1f1c16); border-color: var(--border); }
+    .stats-bar .stat { white-space: nowrap; }
+    .stats-bar .divider {
+      width: 1px;
+      height: 14px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
 
     /* SECTIONS */
     section {
@@ -204,10 +270,15 @@
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
+      .hero-bg { padding: 1.5rem calc(50vw - 50%) 0; }
       header { flex-direction: column; align-items: center; text-align: center; }
+      header img { width: 130px; height: 163px; }
+      .tagline { font-size: 0.95rem; }
       .contact { text-align: center; }
       .contact img { margin: 0 auto; }
       .links { justify-content: center; }
+      .stats-bar { flex-direction: column; gap: 0.3rem; text-align: center; }
+      .stats-bar .divider { display: none; }
       h2 { font-size: 1rem; }
     }
   </style>
@@ -233,28 +304,40 @@
   </nav>
 
   <main>
-  <!-- HEADER -->
+  <!-- HERO -->
+  <div class="hero-bg">
   <header>
     <img src="./img/wei.jpg" alt="Wei Bai" />
     <div class="header-info">
-      <h1>Wei Bai <span>白巍</span></h1>
+      <h1>Wei Bai <span class="cn-name">白巍</span></h1>
       <div class="title">
         <strong>Member of Technical Staff</strong><br>
-        Microsoft AI Superintelligence Team, Microsoft<br>
+        <a href="https://microsoft.ai/news/towards-humanist-superintelligence/" class="accent-link">Microsoft AI Superintelligence Team</a>, Microsoft<br>
         Redmond, Washington, USA
       </div>
+      <p class="tagline">Fusing software engineering with network plumbing — building and stress-testing AI infrastructure at hyperscale.</p>
       <div class="contact">
         <div style="margin-bottom:0.3rem;">Work: <img src="email_work.png" alt="work email" style="height: 22px; width: auto; max-width: 100%; display: inline-block; vertical-align: middle;" /></div>
         <div>Personal: <img src="email_personal.png" alt="personal email" style="height: 22px; width: auto; max-width: 100%; display: inline-block; vertical-align: middle;" /></div>
       </div>
       <div class="links">
-        <a href="CV.pdf">📄 CV</a>
-        <a href="https://www.linkedin.com/in/wei-bai-234a6261" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/baiwei0427" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://scholar.google.com.hk/citations?user=2zjLkpcAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="CV.pdf"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> CV</a>
+        <a href="https://github.com/baiwei0427" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.468-2.382 1.235-3.22-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803a11.5 11.5 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.838 1.234 1.91 1.234 3.22 0 4.61-2.807 5.625-5.48 5.92.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</a>
+        <a href="https://www.linkedin.com/in/wei-bai-234a6261" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+        <a href="https://scholar.google.com.hk/citations?user=2zjLkpcAAAAJ" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-1.75a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5zM1.5 4.5 12 0l10.5 4.5V12h-3V6.5L12 10 4.5 6.5V12h-3V4.5z"/></svg> Google Scholar</a>
       </div>
     </div>
   </header>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <span class="stat">10+ Years in Networking</span>
+    <span class="divider"></span>
+    <span class="stat">30+ Publications</span>
+    <span class="divider"></span>
+    <span class="stat">SIGCOMM · NSDI · EuroSys</span>
+  </div>
 
   <!-- ABOUT -->
   <section id="about" class="reveal">
