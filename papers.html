@@ -47,6 +47,12 @@
     .toggle-btn:hover { background: var(--hover-bg); border-color: var(--accent); }
     .toggle-btn .arrow { display: inline-block; transition: transform 0.2s; font-size: 0.75rem; }
     .toggle-btn.expanded .arrow { transform: rotate(90deg); }
+
+    /* Venue filter bar */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .filter-btn { font-family: inherit; font-size: 0.82rem; font-weight: 500; padding: 0.35rem 0.85rem; border-radius: 5px; border: 1px solid var(--border); background: none; color: var(--muted); cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
   </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0JPBRQV5V"></script>
@@ -76,9 +82,17 @@
 
   <h2>Conference Papers</h2>
 
+  <div class="filter-bar" role="toolbar" aria-label="Filter by venue">
+    <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter-btn" data-filter="sigcomm" aria-pressed="false">SIGCOMM</button>
+    <button class="filter-btn" data-filter="nsdi" aria-pressed="false">NSDI</button>
+    <button class="filter-btn" data-filter="eurosys" aria-pressed="false">EuroSys</button>
+    <button class="filter-btn" data-filter="other" aria-pressed="false">Others</button>
+  </div>
+
   <div class="year-label">2025</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C32]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C32]</span>
     <div class="paper-title"><a href="https://dl.acm.org/doi/10.1145/3718958.3754342">Unlocking Superior Performance in Reconfigurable Data Center Networks with Credit-Based Transport</a></div>
     <div class="paper-authors">Federico De Marchi, Jialong Li, Ying Zhang, <strong>Wei Bai</strong>, Yiting Xia</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2025</div>
@@ -89,7 +103,7 @@
 
   <div class="year-label">2024</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C31]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C31]</span>
     <div class="paper-title"><a href="./papers/ucmp-sigcomm2024.pdf">Uniform-Cost Multi-Path Routing for Reconfigurable Data Center Networks</a></div>
     <div class="paper-authors">Jialong Li, Haotian Gong, Federico De Marchi, Aoyu Gong, Yiming Lei, <strong>Wei Bai</strong>, Yiting Xia</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2024</div>
@@ -97,7 +111,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C30]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C30]</span>
     <div class="paper-title"><a href="./papers/harmonic-nsdi2024.pdf">Hardware-assisted RDMA Performance Isolation for Public Clouds</a></div>
     <div class="paper-authors">Jiaqi Lou*, Xinhao Kong*, Jinghan Huang, <strong>Wei Bai</strong>, Nam Sung Kim, Danyang Zhuo</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2024</div>
@@ -105,7 +119,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C29]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C29]</span>
     <div class="paper-title"><a href="./papers/reverie-nsdi2024.pdf">Reverie: Low Pass Filter-Based Switch Buffer Sharing for Datacenters with RDMA and TCP Traffic</a></div>
     <div class="paper-authors">Vamsi Addanki, <strong>Wei Bai</strong>, Stefan Schmid, Maria Apostolaki</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2024</div>
@@ -113,7 +127,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C28]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C28]</span>
     <div class="paper-title"><a href="./papers/dnn-transport-nsdi2024.pdf">Towards Domain-Specific Network Transport for Distributed DNN Training</a></div>
     <div class="paper-authors">Hao Wang, Han Tian, Jingrong Chen, Xinchen Wan, Jiacheng Xia, Gaoxiong Zeng, <strong>Wei Bai</strong>, Junchen Jiang, Yong Wang, Kai Chen</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2024</div>
@@ -123,7 +137,7 @@
 
   <div class="year-label">2023</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C27]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C27]</span>
     <div class="paper-title"><a href="./papers/lumina-sigcomm2023.pdf">Understanding the Micro-Behaviors of Hardware Offloaded Network Stacks with Lumina</a></div>
     <div class="paper-authors">Zhuolong Yu, Bowen Su, <strong>Wei Bai</strong>, Shachar Raindel, Vladimir Braverman, Xin Jin</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2023</div>
@@ -131,7 +145,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C26]</span>
+  <div class="paper reveal" data-venue="eurosys"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C26]</span>
     <div class="paper-title"><a href="./papers/flexpass-eurosys2023.pdf">FlexPass: A Case for Flexible Credit-based Transport for Datacenter Networks</a></div>
     <div class="paper-authors">Hwijoon Lim, Jaehong Kim, Inho Cho, Keon Jang, <strong>Wei Bai</strong>, Dongsu Han</div>
     <div class="paper-venue"><span class="badge badge-eurosys">EuroSys</span> ACM EuroSys 2023</div>
@@ -139,7 +153,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C25]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C25]</span>
     <div class="paper-title"><a href="./papers/rdma-nsdi2023.pdf">Empowering Azure Storage with RDMA</a> <span class="ops-tag">Operational</span> <span class="badge badge-perfect">⭐ Perfect Score</span></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Shanim Sainul Abdeen, Ankit Agrawal, Krishan Kumar Attre, Paramvir Bahl, Ameya Bhagat, Gowri Bhaskara, Tanya Brokhman, Lei Cao, Ahmad Cheema, Rebecca Chow, Jeff Cohen, Mahmoud Elhaddad, Vivek Ette, Igal Figlin, Daniel Firestone, Mathew George, Ilya German, Lakhmeet Ghai, Eric Green, Albert Greenberg, Manish Gupta, Randy Haagens, Matthew Hendel, Ridwan Howlader, Neetha John, Julia Johnstone, Tom Jolly, Greg Kramer, David Kruse, Ankit Kumar, Erica Lan, Ivan Lee, Avi Levy, Marina Lipshteyn, Xin Liu, Chen Liu, Guohan Lu, Yuemin Lu, Xiakun Lu, Vadim Makhervaks, Ulad Malashanka, David A. Maltz, Ilias Marinos, Rohan Mehta, Sharda Murthi, Anup Namdhari, Aaron Ogus, Jitendra Padhye, Madhav Pandya, Douglas Phillips, Adrian Power, Suraj Puri, Shachar Raindel, Jordan Rhee, Anthony Russo, Maneesh Sah, Ali Sheriff, Chris Sparacino, Ashutosh Srivastava, Weixiang Sun, Nick Swanson, Fuhou Tian, Lukasz Tomczyk, Vamsi Vadlamuri, Alec Wolman, Ying Xie, Joyce Yom, Lihua Yuan, Yanzhao Zhang, Brian Zill</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2023</div>
@@ -147,7 +161,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C24]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C24]</span>
     <div class="paper-title"><a href="./papers/husky-nsdi2023.pdf">Understanding RDMA Microarchitecture Resources for Performance Isolation</a></div>
     <div class="paper-authors">Xinhao Kong, Jingrong Chen, <strong>Wei Bai</strong>, Yechen Xu, Mahmoud Elhaddad, Shachar Raindel, Jitendra Padhye, Alvin R. Lebeck, Danyang Zhuo</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2023</div>
@@ -160,7 +174,7 @@
 
   <div class="year-label">2021</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C23]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C23]</span>
     <div class="paper-title"><a href="./papers/1pipe-sigcomm2021.pdf">1Pipe: Scalable Total Order Communication in Data Center Networks</a></div>
     <div class="paper-authors">Bojie Li, Gefei Zuo, <strong>Wei Bai</strong>, Lintao Zhang</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2021</div>
@@ -168,7 +182,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C22]</span>
+  <div class="paper reveal" data-venue="eurosys"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C22]</span>
     <div class="paper-title"><a href="./papers/tlt-eurosys2021.pdf">Towards Timeout-less Transport in Commodity Datacenter Networks</a></div>
     <div class="paper-authors">Hwijoon Lim, <strong>Wei Bai</strong>, Yibo Zhu, Youngmok Jung, Dongsu Han</div>
     <div class="paper-venue"><span class="badge badge-eurosys">EuroSys</span> ACM EuroSys 2021</div>
@@ -178,7 +192,7 @@
 
   <div class="year-label">2020</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C21]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C21]</span>
     <div class="paper-title"><a href="./papers/aeolus-sigcomm2020.pdf">Aeolus: A Building Block for Proactive Transport in Datacenters</a></div>
     <div class="paper-authors">Shuihai Hu, <strong>Wei Bai</strong>, Gaoxiong Zeng, Zilong Wang, Baochen Qiao, Kai Chen, Kun Tan, Yi Wang</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2020</div>
@@ -186,7 +200,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C20]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C20]</span>
     <div class="paper-title"><a href="./papers/omnimon-sigcomm2020.pdf">OmniMon: Re-architecting Network Telemetry with Resource Efficiency and Full Accuracy</a></div>
     <div class="paper-authors">Qun Huang, Haifeng Sun, Patrick P. C. Lee, <strong>Wei Bai</strong>, Feng Zhu, Yungang Bao</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2020</div>
@@ -194,7 +208,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C19]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C19]</span>
     <div class="paper-title"><a href="./papers/bcc-infocom2020.pdf">One More Config is Enough: Saving (DC)TCP for High-speed Extremely Shallow-buffered Datacenters</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Shuihai Hu, Kai Chen, Kun Tan, Yongqiang Xiong</div>
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2020</div>
@@ -202,7 +216,7 @@
 
   <div class="year-label">2019</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C18]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C18]</span>
     <div class="paper-title"><a href="./papers/ecn-conext2019.pdf">Enabling ECN for Datacenter Networks with RTT Variations</a></div>
     <div class="paper-authors">Junxue Zhang, <strong>Wei Bai</strong>, Kai Chen</div>
     <div class="paper-venue"><span class="badge badge-other">CoNEXT</span> ACM CoNEXT 2019</div>
@@ -210,7 +224,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C17]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C17]</span>
     <div class="paper-title"><a href="./papers/socksdirect-sigcomm2019.pdf">SocksDirect: Datacenter Sockets can be Fast and Compatible</a></div>
     <div class="paper-authors">Bojie Li, Tianyi Cui, Zibo Wang, <strong>Wei Bai</strong>, Lintao Zhang</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2019</div>
@@ -218,7 +232,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C16]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C16]</span>
     <div class="paper-title"><a href="./papers/gemini-icnp2019.pdf">Congestion Control for Cross-Datacenter Networks</a></div>
     <div class="paper-authors">Gaoxiong Zeng, <strong>Wei Bai</strong>, Ge Chen, Kai Chen, Dongsu Han, Yibo Zhu, Lei Cui</div>
     <div class="paper-venue"><span class="badge badge-other">ICNP</span> IEEE ICNP 2019</div>
@@ -226,13 +240,13 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C15]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C15]</span>
     <div class="paper-title"><a href="./papers/flowshader-icnp2019.pdf">FlowShader: a Generalized Framework for GPU-accelerated VNF Flow Processing</a></div>
     <div class="paper-authors">Xiaodong Yi, Junjie Wang, Jingpu Duan, <strong>Wei Bai</strong>, Chuan Wu, Yongqiang Xiong, Dongsu Han</div>
     <div class="paper-venue"><span class="badge badge-other">ICNP</span> IEEE ICNP 2019</div>
   </div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C14]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C14]</span>
     <div class="paper-title"><a href="./papers/dlbooster-icpp2019.pdf">DLBooster: Boosting End-to-End Deep Learning Workflows with Offloading Data Preprocessing Pipelines</a></div>
     <div class="paper-authors">Yang Cheng, Dan Li, Zhiyuan Guo, Binyao Jiang, Jiaxin Lin, Xi Fan, Jinkun Geng, Xinyi Yu, <strong>Wei Bai</strong>, Lei Qu, Ran Shu, Peng Cheng, Yongqiang Xiong, Jianping Wu</div>
     <div class="paper-venue"><span class="badge badge-other">ICPP</span> ICPP 2019</div>
@@ -240,7 +254,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C13]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C13]</span>
     <div class="paper-title"><a href="./papers/atc19-li-zhao-lucas.pdf">Accelerating Rule-matching Systems with Learned Rankers</a></div>
     <div class="paper-authors">Zhao Lucis Li, Mike Chieh-Jan Liang, <strong>Wei Bai</strong>, Qiming Zheng, Yongqiang Xiong, Guangzhong Sun</div>
     <div class="paper-venue"><span class="badge badge-other">ATC</span> USENIX ATC 2019</div>
@@ -250,7 +264,7 @@
 
   <div class="year-label">2017</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C12]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C12]</span>
     <div class="paper-title"><a href="./papers/hermes-sigcomm2017.pdf">Resilient Datacenter Load Balancing in the Wild</a></div>
     <div class="paper-authors">Hong Zhang, Junxue Zhang, <strong>Wei Bai</strong>, Kai Chen, Mosharaf Chowdhury</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2017</div>
@@ -258,7 +272,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C11]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C11]</span>
     <div class="paper-title"><a href="./papers/rax-infocom2017.pdf">Rate-Aware Flow Scheduling for Commodity Data Center Networks</a></div>
     <div class="paper-authors">Ziyang Li, <strong>Wei Bai</strong>, Kai Chen, Dongsu Han, Yiming Zhang, Dongsheng Li, Hongfang Yu</div>
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2017</div>
@@ -268,7 +282,7 @@
 
   <div class="year-label">2016</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C10]</span>
+  <div class="paper reveal" data-venue="sigcomm"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C10]</span>
     <div class="paper-title"><a href="./papers/karuna-sigcomm2016.pdf">Scheduling Mix-flows in Commodity Datacenters with Karuna</a></div>
     <div class="paper-authors">Li Chen, Kai Chen, <strong>Wei Bai</strong>, Mohammad Alizadeh</div>
     <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2016</div>
@@ -276,7 +290,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C9]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C9]</span>
     <div class="paper-title"><a href="./papers/mqecn-nsdi2016.pdf">Enabling ECN in Multi-Service Multi-Queue Data Centers</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Li Chen, Kai Chen, Dongsu Han, Chen Tian, Wei Wang</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2016</div>
@@ -284,7 +298,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C8]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C8]</span>
     <div class="paper-title"><a href="./papers/trinity-infocom2016.pdf">Providing Bandwidth Guarantees, Work Conservation and Low Latency Simultaneously in the Cloud</a></div>
     <div class="paper-authors">Shuihai Hu, <strong>Wei Bai</strong>, Kai Chen, Chen Tian, Ying Zhang, Haitao Wu</div>
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2016</div>
@@ -292,7 +306,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C7]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C7]</span>
     <div class="paper-title"><a href="./papers/tcn-conext2016.pdf">Enabling ECN over Generic Packet Scheduling</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Kai Chen, Li Chen, Changhoon Kim, Haitao Wu</div>
     <div class="paper-venue"><span class="badge badge-other">CoNEXT</span> ACM CoNEXT 2016</div>
@@ -302,7 +316,7 @@
 
   <div class="year-label">2015</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C6]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C6]</span>
     <div class="paper-title"><a href="./papers/pias-nsdi2015.pdf">Information-Agnostic Flow Scheduling for Commodity Data Centers</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Li Chen, Kai Chen, Dongsu Han, Chen Tian, Hao Wang</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2015</div>
@@ -310,7 +324,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C5]</span>
+  <div class="paper reveal" data-venue="nsdi"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C5]</span>
     <div class="paper-title"><a href="./papers/xpath-nsdi2015.pdf">Explicit Path Control in Commodity Data Centers: Design and Applications</a></div>
     <div class="paper-authors">Shuihai Hu, Kai Chen, Haitao Wu, <strong>Wei Bai</strong>, Chang Lan, Hao Wang, Hongze Zhao, Chuanxiong Guo</div>
     <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2015</div>
@@ -318,7 +332,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C4]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C4]</span>
     <div class="paper-title"><a href="./papers/rapier-infocom2015.pdf">RAPIER: Integrating Routing and Scheduling for Coflow-aware Data Center Networks</a></div>
     <div class="paper-authors">Yangming Zhao, Kai Chen, <strong>Wei Bai</strong>, Minlan Yu, Chen Tian, Yanhui Geng, Yiming Zhang, Dan Li, Sheng Wang</div>
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2015</div>
@@ -326,7 +340,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C3]</span>
+  <div class="paper reveal" data-venue="eurosys"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C3]</span>
     <div class="paper-title"><a href="./papers/amoeba-eurosys2015.pdf">Guaranteeing Deadlines for Inter-Datacenter Transfers</a></div>
     <div class="paper-authors">Hong Zhang, Kai Chen, <strong>Wei Bai</strong>, Dongsu Han, Chen Tian, Hao Wang, Haibing Guan, Ming Zhang</div>
     <div class="paper-venue"><span class="badge badge-eurosys">EuroSys</span> ACM EuroSys 2015</div>
@@ -336,7 +350,7 @@
 
   <div class="year-label">2014</div>
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C2]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C2]</span>
     <div class="paper-title"><a href="./papers/pac-icnp2014.pdf">PAC: Taming TCP Incast Congestion Using Proactive ACK Control</a></div>
     <div class="paper-authors"><strong>Wei Bai</strong>, Kai Chen, Haitao Wu, Wuwei Lan, Yangming Zhao</div>
     <div class="paper-venue"><span class="badge badge-other">ICNP</span> IEEE ICNP 2014</div>
@@ -344,7 +358,7 @@
 
 
 
-  <div class="paper reveal"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C1]</span>
+  <div class="paper reveal" data-venue="other"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[C1]</span>
     <div class="paper-title"><a href="./papers/hadoopwatch-infocom2014.pdf">HadoopWatch: A First Step Towards Comprehensive Traffic Forecasting in Cloud Computing</a></div>
     <div class="paper-authors">Yang Peng, Kai Chen, Guohui Wang, <strong>Wei Bai</strong>, Zhiqiang Ma, Lin Gu</div>
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2014</div>
@@ -558,6 +572,101 @@ function toggleSection(btnId, sectionId, year) {
     else{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark');btn.setAttribute('aria-label','Switch to light mode')}
   });
   if(document.documentElement.getAttribute('data-theme')==='dark')btn.setAttribute('aria-label','Switch to light mode');
+}();
+</script>
+<script>
+!function(){
+  var bar = document.querySelector('.filter-bar');
+  if (!bar) return;
+  var buttons = bar.querySelectorAll('.filter-btn');
+  var confHeading = document.querySelector('h2');
+  // Collect all Conference Papers section elements (between Conference h2 and Workshop h2)
+  var workshopH2 = null;
+  var h2s = document.querySelectorAll('h2');
+  for (var i = 0; i < h2s.length; i++) {
+    if (h2s[i].textContent.trim() === 'Workshop Papers') { workshopH2 = h2s[i]; break; }
+  }
+  // Gather conference paper elements: year-labels, papers, toggle-btns, collapsed-papers
+  var confPapers = [];
+  var confYears = [];
+  var confToggleBtns = [];
+  var collapsedSection = document.getElementById('earlierPapers');
+  var el = bar.nextElementSibling;
+  while (el && el !== workshopH2) {
+    if (el.classList.contains('year-label')) confYears.push(el);
+    if (el.classList.contains('paper')) confPapers.push(el);
+    if (el.classList.contains('collapsed-papers')) {
+      // also gather children
+      var children = el.children;
+      for (var j = 0; j < children.length; j++) {
+        if (children[j].classList.contains('year-label')) confYears.push(children[j]);
+        if (children[j].classList.contains('paper')) confPapers.push(children[j]);
+      }
+    }
+    if (el.classList.contains('toggle-btn')) confToggleBtns.push(el);
+    el = el.nextElementSibling;
+  }
+
+  function applyFilter(venue) {
+    var isAll = venue === 'all';
+    // Show/hide papers
+    confPapers.forEach(function(p) {
+      if (isAll || p.getAttribute('data-venue') === venue) {
+        p.style.display = '';
+        p.classList.add('visible');
+      } else {
+        p.style.display = 'none';
+      }
+    });
+    // When filtering, auto-expand collapsed section; when "All", restore
+    if (collapsedSection) {
+      var toggleBtn = document.getElementById('toggleEarlierConf');
+      if (!isAll) {
+        collapsedSection.classList.add('expanded');
+        if (toggleBtn) toggleBtn.style.display = 'none';
+      } else {
+        collapsedSection.classList.remove('expanded');
+        if (toggleBtn) {
+          toggleBtn.style.display = '';
+          toggleBtn.classList.remove('expanded');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+          toggleBtn.innerHTML = '<span class="arrow">&#9654;</span> Show earlier papers (before 2023)';
+        }
+      }
+    }
+    // Show/hide year labels whose papers are all hidden
+    confYears.forEach(function(yl) {
+      var next = yl.nextElementSibling;
+      var hasVisible = false;
+      while (next && !next.classList.contains('year-label') && !next.classList.contains('toggle-btn') && next.tagName !== 'H2') {
+        if (next.classList.contains('paper') && next.style.display !== 'none') {
+          hasVisible = true; break;
+        }
+        // Check inside collapsed-papers
+        if (next.classList.contains('collapsed-papers')) {
+          var kids = next.children;
+          for (var k = 0; k < kids.length; k++) {
+            if (kids[k].classList.contains('paper') && kids[k].style.display !== 'none') {
+              hasVisible = true; break;
+            }
+          }
+          if (hasVisible) break;
+        }
+        next = next.nextElementSibling;
+      }
+      yl.style.display = hasVisible ? '' : 'none';
+    });
+    // Update buttons
+    buttons.forEach(function(b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-filter') === venue ? 'true' : 'false');
+    });
+  }
+
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      applyFilter(btn.getAttribute('data-filter'));
+    });
+  });
 }();
 </script>
 </body>
