@@ -200,7 +200,7 @@
     <div class="paper-venue"><span class="badge badge-infocom">INFOCOM</span> IEEE INFOCOM 2020</div>
   </div>
 
-  <button class="toggle-btn" id="toggleEarlier" onclick="toggleEarlierPapers()" aria-expanded="false" aria-controls="earlierPapers"><span class="arrow">&#9654;</span> Show earlier papers (before 2020)</button>
+  <button class="toggle-btn" id="toggleEarlierConf" onclick="toggleSection('toggleEarlierConf','earlierPapers','2020')" aria-expanded="false" aria-controls="earlierPapers"><span class="arrow">&#9654;</span> Show earlier papers (before 2020)</button>
   <div class="collapsed-papers" id="earlierPapers">
 
   <div class="year-label">2019</div>
@@ -380,6 +380,9 @@
 
 
 
+  <button class="toggle-btn" id="toggleEarlierWorkshop" onclick="toggleSection('toggleEarlierWorkshop','earlierWorkshopPapers','2019')" aria-expanded="false" aria-controls="earlierWorkshopPapers"><span class="arrow">&#9654;</span> Show earlier papers (before 2019)</button>
+  <div class="collapsed-papers" id="earlierWorkshopPapers">
+
   <div class="year-label">2018</div>
 
   <div class="paper"><span style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-right:0.5rem;">[W4]</span>
@@ -416,7 +419,7 @@
     <div class="paper-venue"><span class="badge badge-other">HotNets</span> HotNets 2014</div>
   </div>
 
-  
+  </div><!-- end collapsed workshop papers -->
 
 
 <h2>Journal Papers</h2>
@@ -459,6 +462,9 @@
   </div>
 
 
+
+  <button class="toggle-btn" id="toggleEarlierJournal" onclick="toggleSection('toggleEarlierJournal','earlierJournalPapers','2020')" aria-expanded="false" aria-controls="earlierJournalPapers"><span class="arrow">&#9654;</span> Show earlier papers (before 2020)</button>
+  <div class="collapsed-papers" id="earlierJournalPapers">
 
   <div class="year-label">2018</div>
 
@@ -512,7 +518,8 @@
     <div class="paper-venue"><span class="badge badge-other">ToN</span> IEEE/ACM Transactions on Networking, 2016</div>
   </div>
 
-  
+  </div><!-- end collapsed journal papers -->
+
 
 
   </main>
@@ -520,15 +527,15 @@
 <footer><p>© 2015–2026 Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p></footer>
 
 <script>
-function toggleEarlierPapers() {
-  var btn = document.getElementById('toggleEarlier');
-  var section = document.getElementById('earlierPapers');
+function toggleSection(btnId, sectionId, year) {
+  var btn = document.getElementById(btnId);
+  var section = document.getElementById(sectionId);
   var expanded = section.classList.toggle('expanded');
   btn.classList.toggle('expanded', expanded);
   btn.setAttribute('aria-expanded', expanded);
   btn.innerHTML = expanded
-    ? '<span class="arrow">&#9654;</span> Hide earlier papers (before 2020)'
-    : '<span class="arrow">&#9654;</span> Show earlier papers (before 2020)';
+    ? '<span class="arrow">&#9654;</span> Hide earlier papers (before ' + year + ')'
+    : '<span class="arrow">&#9654;</span> Show earlier papers (before ' + year + ')';
 }
 </script>
 </body>
