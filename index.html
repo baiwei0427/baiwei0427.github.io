@@ -410,7 +410,7 @@
 </script>
 <script>
 !function(){
-  fetch('/data/scholar.json').then(function(r){return r.json()}).then(function(d){
+  fetch('data/scholar.json').then(function(r){return r.json()}).then(function(d){
     if(d&&d.citation_count){
       var link=document.getElementById('scholar-link');
       if(link){

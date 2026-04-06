@@ -547,6 +547,9 @@ function toggleSection(btnId, sectionId, year) {
   btn.innerHTML = expanded
     ? '<span class="arrow">&#9654;</span> Hide earlier papers (before ' + year + ')'
     : '<span class="arrow">&#9654;</span> Show earlier papers (before ' + year + ')';
+  if (expanded) {
+    section.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+  }
 }
 </script>
 <script>
