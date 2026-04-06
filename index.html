@@ -129,34 +129,6 @@
     }
     html[data-theme='dark'] .links a:hover { color: #fff; }
 
-    /* STATS BAR */
-    .stats-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem 1.25rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-      padding: 0.9rem 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3rem;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      padding-left: calc(50vw - 50%);
-      padding-right: calc(50vw - 50%);
-      background: var(--hero-warm, #f2efe8);
-    }
-    html[data-theme='dark'] .stats-bar { background: var(--hero-warm, #1f1c16); border-color: var(--border); }
-    .stats-bar .stat { white-space: nowrap; }
-    .stats-bar .divider {
-      width: 1px;
-      height: 14px;
-      background: var(--border);
-      flex-shrink: 0;
-    }
-
     /* SECTIONS */
     section {
       margin-bottom: 3rem;
@@ -277,8 +249,6 @@
       .contact { text-align: center; }
       .contact img { margin: 0 auto; }
       .links { justify-content: center; }
-      .stats-bar { flex-direction: column; gap: 0.3rem; text-align: center; }
-      .stats-bar .divider { display: none; }
       h2 { font-size: 1rem; }
     }
   </style>
@@ -328,15 +298,6 @@
       </div>
     </div>
   </header>
-  </div>
-
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <span class="stat">10+ Years in Networking</span>
-    <span class="divider"></span>
-    <span class="stat">30+ Publications</span>
-    <span class="divider"></span>
-    <span class="stat">SIGCOMM · NSDI · EuroSys</span>
   </div>
 
   <!-- ABOUT -->
