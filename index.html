@@ -24,9 +24,9 @@
     .hero-bg {
       --hero-warm: #f2efe8;
       background: var(--hero-warm);
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      padding: 2.5rem calc(50vw - 50%) 0;
+      width: calc(100% + 4rem);
+      margin-left: -2rem;
+      padding: 2.5rem 2rem 0;
       margin-bottom: 0;
     }
     html[data-theme='dark'] .hero-bg {
@@ -258,7 +258,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
-      .hero-bg { padding: 1.5rem calc(50vw - 50%) 0; }
+      .hero-bg { padding: 1.5rem 1rem 0; }
       header { flex-direction: column; align-items: center; text-align: center; }
       header img { width: 130px; height: 163px; }
       .tagline { font-size: 0.95rem; }
