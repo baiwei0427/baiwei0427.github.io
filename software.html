@@ -51,7 +51,7 @@
   <h1>Open Source Software</h1>
   <p class="intro">I believe releasing software is the most important responsibility for every researcher. Below are prototypes and tools related to my papers. Questions? Drop me an email.</p>
 
-  <div class="software-item">
+  <div class="software-item reveal">
     <div class="software-title">Lumina — Hardware Offloaded Network Stack Micro-Behavior Testing</div>
     <div class="software-desc">Adopted by <strong>Microsoft</strong> and <strong>NVIDIA</strong> for production RDMA NIC testing.</div>
     <div class="software-links">
@@ -60,21 +60,21 @@
     </div>
   </div>
 
-  <div class="software-item">
+  <div class="software-item reveal">
     <div class="software-title">PIAS — Information-Agnostic Flow Scheduling</div>
     <div class="software-links">
       <a href="https://github.com/HKUST-SING/PIAS-Software">Code</a>
     </div>
   </div>
 
-  <div class="software-item">
+  <div class="software-item reveal">
     <div class="software-title">MQ-ECN — ECN for Multi-Service Multi-Queue Data Centers</div>
     <div class="software-links">
       <a href="https://github.com/HKUST-SING/MQ-ECN-Software">Code</a>
     </div>
   </div>
 
-  <div class="software-item">
+  <div class="software-item reveal">
     <div class="software-title">Traffic Generator — Simple traffic generator for network experiments</div>
     <div class="software-links">
       <a href="https://github.com/HKUST-SING/TrafficGenerator">Code</a>
@@ -88,5 +88,19 @@
     <p id="last-updated"></p>
     <script>!function(){var d=new Date(),m=d.toLocaleString('en-US',{month:'long'});document.getElementById('last-updated').textContent='Last updated: '+m+' '+d.getFullYear()}()</script>
   </footer>
+
+<script>
+!function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){el.classList.add('visible')});return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+  },{threshold:0.15});
+  els.forEach(function(el){obs.observe(el)});
+}();
+</script>
 </body>
 </html>

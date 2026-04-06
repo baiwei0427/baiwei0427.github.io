@@ -53,73 +53,73 @@
   <main>
   <h1>Talks</h1>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">SONiC for AI Networking: Looking Back and Ahead</div>
     <div class="talk-meta">SONiC Workshop, OCP Global Summit 2025 · with Xin Liu</div>
     <div class="talk-links"><a href="https://www.youtube.com/watch?v=FnOO5Ot2HEU" class="tag-video">▶ Video</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Empowering AI Networking with SONiC</div>
     <div class="talk-meta">SONiC Workshop, OCP Global Summit 2024 · with Guohan Lu, Xin Liu</div>
     <div class="talk-links"><a href="https://www.youtube.com/watch?v=tjQsXYjNxiM" class="tag-video">▶ Video</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">RDMA at Hyperscale: Experience and Future Directions</div>
     <div class="talk-meta">APNet 2023 · June 2023, Hong Kong</div>
     <div class="talk-links"><a href="./slides/rdma-apnet.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Empowering Azure Storage with RDMA</div>
     <div class="talk-meta">May 2023, Peking University</div>
     <div class="talk-links"><a href="./slides/rdma-pku.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Inside a Datacenter: Hardware and Software Architecture</div>
     <div class="talk-meta">Guest Lecture, Cloud Computing · October 2022, Boston University</div>
     <div class="talk-links"><a href="./slides/inside-datacenter.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Aeolus: A Building Block for Proactive Transport in Datacenters</div>
     <div class="talk-meta">Systems and Networking Seminar · December 2020, Duke University</div>
     <div class="talk-links"><a href="./slides/aeolus-duke.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Congestion Control Mechanisms for Data Center Networks</div>
     <div class="talk-meta">HotDC 2018 · October 2018, Beijing</div>
     <div class="talk-links"><a href="./slides/hotdc-talk.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Experiments with Data Center Congestion Control Research</div>
     <div class="talk-meta">APNet 2017 · August 2017, Hong Kong</div>
     <div class="talk-links"><a href="./slides/apnet17.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Congestion Control Mechanisms for Data Center Networks</div>
     <div class="talk-meta">PhD Thesis Defense · May 2017, HKUST</div>
     <div class="talk-links"><a href="./slides/defense.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Enabling ECN over Generic Packet Scheduling</div>
     <div class="talk-meta">CoNEXT 2016 · December 2016, Irvine</div>
     <div class="talk-links"><a href="./slides/tcn-conext.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Enabling ECN in Multi-Service Multi-Queue Data Centers</div>
     <div class="talk-meta">NSDI 2016 · March 2016, Santa Clara</div>
     <div class="talk-links"><a href="./slides/mqecn-nsdi.pptx" class="tag-slides">📊 Slides</a></div>
   </div>
 
-  <div class="talk">
+  <div class="talk reveal">
     <div class="talk-title">Information-Agnostic Flow Scheduling for Commodity Data Centers</div>
     <div class="talk-meta">NSDI 2015 · May 2015, Oakland</div>
     <div class="talk-links"><a href="./slides/pias-nsdi.pptx" class="tag-slides">📊 Slides</a></div>
@@ -132,5 +132,19 @@
     <p id="last-updated"></p>
     <script>!function(){var d=new Date(),m=d.toLocaleString('en-US',{month:'long'});document.getElementById('last-updated').textContent='Last updated: '+m+' '+d.getFullYear()}()</script>
   </footer>
+
+<script>
+!function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){el.classList.add('visible')});return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+  },{threshold:0.15});
+  els.forEach(function(el){obs.observe(el)});
+}();
+</script>
 </body>
 </html>

@@ -37,6 +37,54 @@
       .entry { flex-direction: column; gap: 0.25rem; }
       .entry-period { min-width: auto; text-align: left; }
     }
+
+    /* TIMELINE */
+    .timeline {
+      --rail-x: calc(150px + 1rem);
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: var(--rail-x);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+    .timeline .entry {
+      position: relative;
+    }
+    .timeline .entry::before {
+      content: '';
+      position: absolute;
+      left: var(--rail-x);
+      top: 1.35rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--muted);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    .timeline .entry.current::before {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    @media (max-width: 600px) {
+      .timeline {
+        --rail-x: 5px;
+        padding-left: 1.5rem;
+      }
+      .timeline .entry::before {
+        top: 0.25rem;
+        width: 8px;
+        height: 8px;
+      }
+    }
   </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0JPBRQV5V"></script>
@@ -61,7 +109,9 @@
 
   <h2>Industry</h2>
 
-  <div class="entry">
+  <div class="timeline">
+
+  <div class="entry current reveal">
     <div class="entry-period">Feb 2026 – Present</div>
     <div class="entry-content">
       <div class="entry-org"><a href="https://microsoft.ai/news/towards-humanist-superintelligence/">Microsoft</a></div>
@@ -70,7 +120,7 @@
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry reveal">
     <div class="entry-period">Jan 2024 – Feb 2026</div>
     <div class="entry-content">
       <div class="entry-org"><a href="https://www.nvidia.com/">NVIDIA</a></div>
@@ -80,7 +130,7 @@
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry reveal">
     <div class="entry-period">Aug 2019 – Jan 2024</div>
     <div class="entry-content">
       <div class="entry-org"><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-redmond/">Microsoft</a></div>
@@ -90,7 +140,7 @@
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry reveal">
     <div class="entry-period">Jul 2017 – Aug 2019</div>
     <div class="entry-content">
       <div class="entry-org"><a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/">Microsoft</a></div>
@@ -100,9 +150,13 @@
     </div>
   </div>
 
+  </div>
+
   <h2>Education</h2>
 
-  <div class="entry">
+  <div class="timeline">
+
+  <div class="entry reveal">
     <div class="entry-period">Sep 2013 – Jun 2017</div>
     <div class="entry-content">
       <div class="entry-org"><a href="https://hkust.edu.hk/">Hong Kong University of Science and Technology (HKUST)</a></div>
@@ -112,7 +166,7 @@
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry reveal">
     <div class="entry-period">Sep 2009 – Jul 2013</div>
     <div class="entry-content">
       <div class="entry-org"><a href="https://en.sjtu.edu.cn/">Shanghai Jiao Tong University (SJTU)</a></div>
@@ -122,6 +176,8 @@
     </div>
   </div>
 
+  </div>
+
   </main>
 
   <footer>
@@ -129,5 +185,19 @@
     <p id="last-updated"></p>
     <script>!function(){var d=new Date(),m=d.toLocaleString('en-US',{month:'long'});document.getElementById('last-updated').textContent='Last updated: '+m+' '+d.getFullYear()}()</script>
   </footer>
+
+<script>
+!function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){el.classList.add('visible')});return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+  },{threshold:0.15});
+  els.forEach(function(el){obs.observe(el)});
+}();
+</script>
 </body>
 </html>
