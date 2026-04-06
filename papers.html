@@ -16,7 +16,7 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/site.css">
   <script>(function(){if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')})()</script>
   <style>
@@ -32,7 +32,7 @@
     .paper-authors { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.2rem; }
     .paper-authors strong { color: var(--text); font-weight: 500; }
     .paper-venue { font-size: 0.82rem; color: var(--muted); }
-    .badge { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 0.1rem 0.35rem; border-radius: 3px; margin-right: 0.3rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .badge { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.1rem 0.35rem; border-radius: 3px; margin-right: 0.3rem; text-transform: uppercase; letter-spacing: 0.03em; }
     .badge-sigcomm { background: #fef3c7; color: #92400e; }
     .badge-nsdi { background: #dbeafe; color: #1e40af; }
     .badge-eurosys { background: #d1fae5; color: #065f46; }
@@ -534,8 +534,7 @@
 
 <footer>
   <p>© 2015–<script>document.write(new Date().getFullYear())</script> Wei Bai · Assisted by <a href="https://openclaw.ai" style="color:inherit;">OpenClaw AI</a> &amp; <a href="https://github.com/features/copilot" style="color:inherit;">GitHub Copilot</a></p>
-  <p id="last-updated"></p>
-  <script>!function(){var d=new Date(),m=d.toLocaleString('en-US',{month:'long'});document.getElementById('last-updated').textContent='Last updated: '+m+' '+d.getFullYear()}()</script>
+  <p>Last updated: April 2026</p>
 </footer>
 
 <script>
@@ -579,7 +578,6 @@ function toggleSection(btnId, sectionId, year) {
   var bar = document.querySelector('.filter-bar');
   if (!bar) return;
   var buttons = bar.querySelectorAll('.filter-btn');
-  var confHeading = document.querySelector('h2');
   // Collect all Conference Papers section elements (between Conference h2 and Workshop h2)
   var workshopH2 = null;
   var h2s = document.querySelectorAll('h2');
