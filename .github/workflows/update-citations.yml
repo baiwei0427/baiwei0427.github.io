@@ -23,7 +23,7 @@ jobs:
         run: pip install requests beautifulsoup4
 
       - name: Fetch citation count
-        run: python scripts/update_citations.py
+        run: python scripts/update_citations.py || echo "Scholar fetch failed, keeping existing data"
 
       - name: Commit and push if changed
         run: |
