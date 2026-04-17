@@ -440,22 +440,7 @@
   if(document.documentElement.getAttribute('data-theme')==='dark')btn.setAttribute('aria-label','Switch to light mode');
 }();
 </script>
-<script>
-!function(){
-  fetch('data/scholar.json').then(function(r){return r.json()}).then(function(d){
-    if(d&&d.citation_count){
-      var link=document.getElementById('scholar-link');
-      if(link){
-        var span=document.createElement('span');
-        span.textContent=' ('+d.citation_count.toLocaleString()+' citations)';
-        span.style.fontSize='0.78em';
-        span.style.opacity='0.85';
-        link.appendChild(span);
-      }
-    }
-  }).catch(function(e){ console.warn('Failed to load scholar.json:', e); });
-}();
-</script>
+
 <script>
 !function(){
   var short=document.getElementById('rdma-authors-short');
