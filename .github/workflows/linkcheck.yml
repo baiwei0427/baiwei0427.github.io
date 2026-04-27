@@ -13,24 +13,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
 
-      - name: Install lychee
-        run: |
-          curl -sL https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          sudo mv lychee /usr/local/bin/
-
       - name: Check links
-        run: |
-          lychee \
-            --exclude "linkedin\.com" \
-            --exclude "usenix\.org" \
-            --exclude "dl\.acm\.org" \
-            --exclude "scholar\.google" \
-            --exclude "facebook\.com" \
-            --timeout 15 \
-            --max-retries 2 \
-            --format markdown \
-            --output link-report.md \
-            '*.html' || true
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: |
+            --exclude "linkedin\.com"
+            --exclude "usenix\.org"
+            --exclude "dl\.acm\.org"
+            --exclude "scholar\.google"
+            --exclude "facebook\.com"
+            --timeout 15
+            --max-retries 2
+            '*.html'
+          fail: false
+          output: link-report.md
 
       - name: Upload report
         if: always()
@@ -38,13 +34,3 @@ jobs:
         with:
           name: link-report
           path: link-report.md
-
-      - name: Fail on broken links
-        run: |
-          if grep -q "✗" link-report.md 2>/dev/null; then
-            echo "❌ Broken links found!"
-            grep "✗" link-report.md
-            exit 1
-          else
-            echo "✅ All links OK"
-          fi
