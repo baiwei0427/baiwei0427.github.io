@@ -49,7 +49,7 @@ def fetch_citation_count() -> int:
             if len(cells) < 2:
                 raise ValueError("Unexpected row structure")
 
-            count = int(cells[1].text.strip())
+            count = int(cells[1].text.replace(",", "").strip())
             return count
 
         except Exception as exc:
