@@ -1,0 +1,38 @@
+name: Auto Approve and Merge
+
+on:
+  check_suite:
+    types: [completed]
+  workflow_run:
+    workflows: ["PR Check"]
+    types: [completed]
+
+jobs:
+  auto-merge:
+    if: github.event.workflow_run.conclusion == 'success' || github.event.check_suite.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Get open PRs
+        id: prs
+        run: |
+          PR_NUMBER=$(gh pr list --repo ${{ github.repository }} --state open --json number --jq '.[0].number')
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Approve PR
+        if: steps.prs.outputs.pr_number != ''
+        run: |
+          gh pr review ${{ steps.prs.outputs.pr_number }} --repo ${{ github.repository }} --approve
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge PR
+        if: steps.prs.outputs.pr_number != ''
+        run: |
+          gh pr merge ${{ steps.prs.outputs.pr_number }} --repo ${{ github.repository }} --squash --auto
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
