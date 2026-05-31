@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://baiwei0427.github.io/sitemap.xml
