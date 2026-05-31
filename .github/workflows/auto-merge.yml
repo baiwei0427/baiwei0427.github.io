@@ -1,19 +1,37 @@
 name: Auto Merge
 
 on:
+  check_suite:
+    types: [completed]
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  auto-merge:
-    if: github.actor == 'github-actions[bot]'
+  auto-merge-bot:
+    if: github.event_name == 'pull_request' && github.actor == 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
     steps:
-      - name: Auto merge bot PRs
+      - name: Auto merge bot PRs immediately
+        run: gh pr merge ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --squash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  auto-merge-human:
+    if: github.event_name == 'check_suite' && github.event.check_suite.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Get open PRs and merge
         run: |
-          gh pr merge ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --squash
+          PRS=$(gh pr list --repo ${{ github.repository }} --state open --json number,headRefOid --jq '.[] | select(.headRefOid == "${{ github.event.check_suite.head_sha }}") | .number')
+          for pr in $PRS; do
+            echo "Merging PR #$pr"
+            gh pr merge "$pr" --repo ${{ github.repository }} --squash || true
+          done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
