@@ -17,7 +17,7 @@ def get_last_updated_label() -> str:
             "git",
             "log",
             "-1",
-            "--date=format:%B %d, %Y",
+            "--date=format:%B %d, %Y %H:%M UTC",
             "--pretty=format:%ad",
         ],
         cwd=REPO_ROOT,
