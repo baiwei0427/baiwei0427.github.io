@@ -1,7 +1,8 @@
 name: Auto Merge
 
 on:
-  check_suite:
+  workflow_run:
+    workflows: ['PR Check']
     types: [completed]
   pull_request:
     types: [opened, synchronize, reopened]
@@ -15,12 +16,14 @@ jobs:
       pull-requests: write
     steps:
       - name: Auto merge bot PRs immediately
+        # Footer-only bot PRs are merged on open without waiting for CI; this keeps
+        # the automated date update flowing, but would be too broad for code changes.
         run: gh pr merge ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --squash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   auto-merge-human:
-    if: github.event_name == 'check_suite' && github.event.check_suite.conclusion == 'success'
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,7 +31,7 @@ jobs:
     steps:
       - name: Get open PRs and merge
         run: |
-          PRS=$(gh pr list --repo ${{ github.repository }} --state open --json number,headRefOid --jq '.[] | select(.headRefOid == "${{ github.event.check_suite.head_sha }}") | .number')
+          PRS=$(gh pr list --repo ${{ github.repository }} --state open --json number,headRefOid --jq '.[] | select(.headRefOid == "${{ github.event.workflow_run.head_sha }}") | .number')
           for pr in $PRS; do
             echo "Merging PR #$pr"
             gh pr merge "$pr" --repo ${{ github.repository }} --squash || true
