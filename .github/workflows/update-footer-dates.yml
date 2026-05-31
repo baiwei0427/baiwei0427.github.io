@@ -24,6 +24,8 @@ jobs:
 
       - name: Update footer dates
         run: python scripts/update_footer_dates.py
+        env:
+          TZ: America/Los_Angeles
 
       - name: Create PR if changes
         run: |
