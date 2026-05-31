@@ -5,19 +5,31 @@ on:
     branches: [master]
 
 jobs:
-  html-check:
+  validate-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install validator dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install beautifulsoup4 html5lib
+      - name: Install HTML validator
+        run: python -m pip install --upgrade pip html5validator
 
-      - name: Check HTML files and local links
-        run: python scripts/check_html.py
+      - name: Validate HTML
+        run: html5validator --root . --also-check-css --format text '*.html'
+
+      - name: Check broken links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: |
+            --exclude "linkedin\.com"
+            --exclude "usenix\.org"
+            --exclude "dl\.acm\.org"
+            --exclude "scholar\.google"
+            --exclude "facebook\.com"
+            --timeout 15
+            --max-retries 2
+            '*.html'
