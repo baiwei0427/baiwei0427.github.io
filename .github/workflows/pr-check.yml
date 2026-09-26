@@ -30,6 +30,8 @@ jobs:
             --exclude "dl\.acm\.org"
             --exclude "scholar\.google"
             --exclude "facebook\.com"
+            --exclude "zlin1792\.github\.io"
+            --exclude "sciencedirect\.com"
             --timeout 15
             --max-retries 2
             '*.html'
