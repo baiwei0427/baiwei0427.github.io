@@ -96,14 +96,6 @@ fi
 
 gh run watch "$RUN_ID" --repo "$GITHUB_REPOSITORY" --exit-status
 
-gh api "repos/$GITHUB_REPOSITORY/check-runs" \
-  --method POST \
-  --field "name=validate-site" \
-  --field "head_sha=$WORKFLOW_HEAD_SHA" \
-  --field "status=completed" \
-  --field "conclusion=success" \
-  --field "details_url=https://github.com/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" \
-  --field "output[title]=validate-site" \
-  --field "output[summary]=workflow_dispatch PR Check passed for run $RUN_ID"
+gh pr checks "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --required --watch --fail-fast --interval 5
 
 gh pr merge "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --squash --delete-branch
