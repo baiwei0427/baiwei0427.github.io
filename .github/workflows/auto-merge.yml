@@ -17,9 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
+      checks: write
       contents: write
       pull-requests: write
-      statuses: write
     steps:
       - name: Check out master
         uses: actions/checkout@v4
@@ -51,9 +51,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
+      checks: write
       contents: write
       pull-requests: write
-      statuses: write
     steps:
       - name: Check out master
         uses: actions/checkout@v4
