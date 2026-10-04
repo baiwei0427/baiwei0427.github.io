@@ -4,26 +4,12 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [master]
-  pull_request_target:
-    branches: [master]
 
 jobs:
   validate-site:
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'pull_request' &&
-       !(github.actor == 'github-actions[bot]' &&
-         github.event.pull_request.head.repo.full_name == github.repository &&
-         startsWith(github.event.pull_request.head.ref, 'chore/update-footer-dates-'))) ||
-      (github.event_name == 'pull_request_target' &&
-       github.actor == 'github-actions[bot]' &&
-       github.event.pull_request.head.repo.full_name == github.repository &&
-       startsWith(github.event.pull_request.head.ref, 'chore/update-footer-dates-'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5

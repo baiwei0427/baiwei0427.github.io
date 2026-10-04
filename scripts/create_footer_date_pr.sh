@@ -96,6 +96,4 @@ fi
 
 gh run watch "$RUN_ID" --repo "$GITHUB_REPOSITORY" --exit-status
 
-gh pr checks "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --required --watch --fail-fast --interval 5
-
 gh pr merge "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --squash --delete-branch

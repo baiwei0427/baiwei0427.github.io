@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   auto-merge-bot:
-    if: github.event_name == 'pull_request' && github.actor == 'github-actions[bot]' && !startsWith(github.event.pull_request.head.ref, 'chore/update-footer-dates-')
+    if: github.event_name == 'pull_request' && github.actor == 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       actions: write
