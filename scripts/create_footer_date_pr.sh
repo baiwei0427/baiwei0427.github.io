@@ -96,4 +96,11 @@ fi
 
 gh run watch "$RUN_ID" --repo "$GITHUB_REPOSITORY" --exit-status
 
+gh api "repos/$GITHUB_REPOSITORY/statuses/$WORKFLOW_HEAD_SHA" \
+  --method POST \
+  --field state=success \
+  --field context=validate-site \
+  --field description='workflow_dispatch PR Check passed' \
+  --field target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$RUN_ID"
+
 gh pr merge "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --squash --delete-branch
