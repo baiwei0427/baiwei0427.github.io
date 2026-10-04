@@ -13,12 +13,13 @@ concurrency:
 
 jobs:
   auto-merge-bot:
-    if: github.event_name == 'pull_request' && github.actor == 'github-actions[bot]'
+    if: github.event_name == 'pull_request' && github.actor == 'github-actions[bot]' && !startsWith(github.event.pull_request.head.ref, 'chore/update-footer-dates-')
     runs-on: ubuntu-latest
     permissions:
       actions: write
       contents: write
       pull-requests: write
+      statuses: write
     steps:
       - name: Check out master
         uses: actions/checkout@v4
@@ -52,6 +53,7 @@ jobs:
       actions: write
       contents: write
       pull-requests: write
+      statuses: write
     steps:
       - name: Check out master
         uses: actions/checkout@v4
