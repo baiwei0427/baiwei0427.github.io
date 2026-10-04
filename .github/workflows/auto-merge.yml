@@ -7,14 +7,25 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+concurrency:
+  group: auto-merge-master
+  cancel-in-progress: false
+
 jobs:
   auto-merge-bot:
     if: github.event_name == 'pull_request' && github.actor == 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: write
       pull-requests: write
     steps:
+      - name: Check out master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
       - name: Auto merge bot PRs immediately
         # Footer-only bot PRs are merged on open without waiting for CI; this keeps
         # the automated date update flowing, but would be too broad for code changes.
@@ -22,19 +33,58 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Refresh footer after merge
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TZ: America/Los_Angeles
+        run: |
+          git fetch origin master
+          git checkout master
+          git reset --hard origin/master
+          FOOTER_DATE_REF=$(git rev-parse HEAD) bash scripts/create_footer_date_pr.sh
+
   auto-merge-human:
-    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: write
       pull-requests: write
     steps:
+      - name: Check out master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
       - name: Get open PRs and merge
+        id: merge_prs
         run: |
+          set +e
           PRS=$(gh pr list --repo ${{ github.repository }} --state open --json number,headRefOid --jq '.[] | select(.headRefOid == "${{ github.event.workflow_run.head_sha }}") | .number')
+          merged_any=0
+
           for pr in $PRS; do
             echo "Merging PR #$pr"
-            gh pr merge "$pr" --repo ${{ github.repository }} --squash || true
+            if gh pr merge "$pr" --repo ${{ github.repository }} --squash; then
+              merged_any=1
+            fi
           done
+
+          echo "merged_any=$merged_any" >> "$GITHUB_ENV"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Refresh footer after successful merge
+        if: env.merged_any == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TZ: America/Los_Angeles
+        run: |
+          git fetch origin master
+          git checkout master
+          git reset --hard origin/master
+          FOOTER_DATE_REF=$(git rev-parse HEAD) bash scripts/create_footer_date_pr.sh

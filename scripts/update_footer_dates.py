@@ -8,24 +8,61 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 HTML_PATTERN = re.compile(r"Last updated:\s*[^<\n]+")
+FOOTER_DATE_REF = "FOOTER_DATE_REF"
+FOOTER_SUBJECT_PREFIX = "chore: update footer dates ("
+
+
+def is_footer_subject(subject: str) -> bool:
+    """Return True when the commit subject is a footer-only commit."""
+    return subject == "chore: update footer dates" or subject.startswith(FOOTER_SUBJECT_PREFIX)
 
 
 def get_last_updated_label() -> str:
-    """Return the latest commit date in the repository in 'Month D, YYYY' format."""
+    """Return the latest relevant commit date in the repository."""
+    ref = os.getenv(FOOTER_DATE_REF)
+    if ref:
+        result = subprocess.run(
+            [
+                "git",
+                "log",
+                "-1",
+                "--date=format-local:%B %d, %Y %H:%M %Z",
+                "--pretty=format:%ad",
+                ref,
+            ],
+            cwd=REPO_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        return result.stdout.strip()
+
     result = subprocess.run(
         [
             "git",
             "log",
-            "-1",
             "--date=format-local:%B %d, %Y %H:%M %Z",
-            "--pretty=format:%ad",
+            "--pretty=format:%s%x09%ad",
         ],
         cwd=REPO_ROOT,
         check=True,
         capture_output=True,
         text=True,
     )
-    return result.stdout.strip()
+
+    for line in result.stdout.splitlines():
+        if not line.strip():
+            continue
+        parts = line.split("\t", 1)
+        if len(parts) != 2:
+            continue
+        subject, timestamp = parts
+        if not is_footer_subject(subject):
+            return timestamp.strip()
+
+    raise RuntimeError(
+        "No commit found whose subject is not a footer-only commit."
+    )
 
 
 def update_html_files(last_updated: str) -> int:

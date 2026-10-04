@@ -1,17 +1,15 @@
 name: Update footer dates
 
 on:
-  push:
-    branches: [master]
-    paths-ignore:
-      - '*.html'
+  workflow_dispatch:
 
 jobs:
   update-footer-dates:
-    if: "github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, 'chore: update footer dates')"
     runs-on: ubuntu-latest
     permissions:
+      actions: write
       contents: write
+      pull-requests: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -23,18 +21,9 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Update footer dates
-        run: python scripts/update_footer_dates.py
+      - name: Create or refresh footer date PR
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
           TZ: America/Los_Angeles
-
-      - name: Commit and push changes if needed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          if ! git diff --quiet -- '*.html'; then
-            git add *.html
-            git commit -m "chore: update footer dates"
-            git push origin HEAD:master
-          fi
+        run: bash scripts/create_footer_date_pr.sh
