@@ -10,7 +10,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
-SCHOLAR_URL = "https://scholar.google.com.hk/citations?user=2zjLkpcAAAAJ"
+SCHOLAR_URL = "https://scholar.google.com/citations?user=2zjLkpcAAAAJ"
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "scholar.json")
 MAX_RETRIES = 3
 RETRY_BASE_DELAY = 5  # seconds
