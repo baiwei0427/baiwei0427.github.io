@@ -75,11 +75,15 @@ footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--bord
 /* RESPONSIVE */
 @media (max-width: 600px) {
   body { font-size: 16px; padding: 1.5rem 1rem; }
-  nav { flex-wrap: wrap; gap: 0; justify-content: center; border-bottom: none; position: relative; padding-right: 2.5rem; }
-  nav::after { content: ""; display: block; width: 100%; border-bottom: 1px solid var(--border); margin-top: -1px; }
-  nav a { padding: 0.35rem 0.5rem; font-size: 0.78rem; letter-spacing: -0.01em; }
-  .theme-toggle { position: absolute; right: 0; top: 0.15rem; margin-left: 0; }
+  nav { flex-wrap: wrap; gap: 0; justify-content: space-between; }
+  nav a { padding: 0.35rem 0.2rem; font-size: 0.76rem; letter-spacing: -0.01em; white-space: nowrap; }
+  .theme-toggle { margin-left: 0.25rem; }
   h1 { font-size: 1.3rem; }
+}
+
+@media (max-width: 350px) {
+  nav a { padding: 0.35rem 0.1rem; font-size: 0.72rem; }
+  .theme-toggle { margin-left: 0.1rem; }
 }
 
 /* Focus-visible accessibility */
