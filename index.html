@@ -219,6 +219,12 @@
 
     .paper-title a:hover { text-decoration: underline; }
 
+    .paper-desc {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
     .paper-authors {
       font-size: 0.85rem;
       color: var(--muted);
@@ -407,7 +413,8 @@
     <h2>Selected Publications</h2>
 
     <div class="paper reveal">
-      <div class="paper-title"><a href="./papers/rdma-nsdi2023.pdf">Empowering Azure Storage with RDMA</a> <span class="badge badge-perfect">⭐ Perfect Score</span></div>
+      <div class="paper-title"><a href="./papers/rdma-nsdi2023.pdf">Empowering Azure Storage with RDMA</a></div>
+      <div class="paper-desc">Lessons from what was possibly the world&rsquo;s largest RDMA deployment.</div>
       <div class="paper-authors" id="rdma-authors">
         <span id="rdma-authors-short"><strong>Wei Bai</strong>, et al. (71 authors) <button type="button" id="rdma-toggle" class="author-toggle">[show all]</button></span>
         <span id="rdma-authors-full" style="display:none"><strong>Wei Bai</strong>, Shanim Sainul Abdeen, Ankit Agrawal, Krishan Kumar Attre, Paramvir Bahl, Ameya Bhagat, Gowri Bhaskara, Tanya Brokhman, Lei Cao, Ahmad Cheema, Rebecca Chow, Jeff Cohen, Mahmoud Elhaddad, Vivek Ette, Igal Figlin, Daniel Firestone, Mathew George, Ilya German, Lakhmeet Ghai, Eric Green, Albert Greenberg, Manish Gupta, Randy Haagens, Matthew Hendel, Ridwan Howlader, Neetha John, Julia Johnstone, Tom Jolly, Greg Kramer, David Kruse, Ankit Kumar, Erica Lan, Ivan Lee, Avi Levy, Marina Lipshteyn, Xin Liu, Chen Liu, Guohan Lu, Yuemin Lu, Xiakun Lu, Vadim Makhervaks, Ulad Malashanka, David A. Maltz, Ilias Marinos, Rohan Mehta, Sharda Murthi, Anup Namdhari, Aaron Ogus, Jitendra Padhye, Madhav Pandya, Douglas Phillips, Adrian Power, Suraj Puri, Shachar Raindel, Jordan Rhee, Anthony Russo, Maneesh Sah, Ali Sheriff, Chris Sparacino, Ashutosh Srivastava, Weixiang Sun, Nick Swanson, Fuhou Tian, Lukasz Tomczyk, Vamsi Vadlamuri, Alec Wolman, Ying Xie, Joyce Yom, Lihua Yuan, Yanzhao Zhang, Brian Zill <button type="button" id="rdma-collapse" class="author-toggle">[collapse]</button></span>
@@ -417,12 +424,14 @@
 
     <div class="paper reveal">
       <div class="paper-title"><a href="./papers/husky-nsdi2023.pdf">Understanding RDMA Microarchitecture Resources for Performance Isolation</a></div>
+      <div class="paper-desc">Shows how contention for hidden RDMA NIC resources can break performance isolation between tenants.</div>
       <div class="paper-authors">Xinhao Kong, Jingrong Chen, <strong>Wei Bai</strong>, Yechen Xu, Mahmoud Elhaddad, Shachar Raindel, Jitendra Padhye, Alvin R. Lebeck, Danyang Zhuo</div>
       <div class="paper-venue"><span class="badge badge-nsdi">NSDI</span> USENIX NSDI 2023</div>
     </div>
 
     <div class="paper reveal">
       <div class="paper-title"><a href="./papers/lumina-sigcomm2023.pdf">Understanding the Micro-Behaviors of Hardware Offloaded Network Stacks with Lumina</a></div>
+      <div class="paper-desc">Tests RDMA transport behaviors, such as retransmission and congestion control, on commercial NICs by injecting precise network events at line rate.</div>
       <div class="paper-authors">Zhuolong Yu, Bowen Su, <strong>Wei Bai</strong>, Shachar Raindel, Vladimir Braverman, Xin Jin</div>
       <div class="paper-venue"><span class="badge badge-sigcomm">SIGCOMM</span> ACM SIGCOMM 2023</div>
     </div>
