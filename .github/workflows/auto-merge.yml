@@ -43,7 +43,7 @@ jobs:
           git fetch origin master
           git checkout master
           git reset --hard origin/master
-          FOOTER_DATE_REF=$(git rev-parse HEAD) bash scripts/create_footer_date_pr.sh
+          bash scripts/create_footer_date_pr.sh
 
   auto-merge-human:
     if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
@@ -87,4 +87,4 @@ jobs:
           git fetch origin master
           git checkout master
           git reset --hard origin/master
-          FOOTER_DATE_REF=$(git rev-parse HEAD) bash scripts/create_footer_date_pr.sh
+          bash scripts/create_footer_date_pr.sh
